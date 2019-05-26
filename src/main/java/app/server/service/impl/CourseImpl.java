@@ -13,8 +13,10 @@ import java.util.List;
 
 @Service
 public class CourseImpl implements CourseService {
+
     @Autowired
     CourseDAO courseDAO;
+
     @Override
     public List<CourseVO> getCourses() {
         List<Course> courses = courseDAO.findAll();
@@ -23,5 +25,16 @@ public class CourseImpl implements CourseService {
             res.add(PtoV.ptoV.getCourseVO(course));
         }
         return res;
+    }
+
+    @Override
+    public String setCourseAnonymous(String id, boolean anonymous) {
+        if(!courseDAO.existsById(id))return "FAILURE";
+        Course course = courseDAO.findById(id).get();
+        if(course.isAnonymous()!=anonymous) {
+            course.setAnonymous(anonymous);
+            courseDAO.save(course);
+        }
+        return "SUCCESS";
     }
 }

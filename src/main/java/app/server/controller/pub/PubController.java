@@ -1,6 +1,5 @@
 package app.server.controller.pub;
 
-import app.server.bean.Comment;
 import app.server.service.CommentService;
 import app.server.service.CourseService;
 import app.server.vo.CommentVO;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class pubController {
+public class PubController {
     @Autowired
     CommentService commentService;
     @Autowired
