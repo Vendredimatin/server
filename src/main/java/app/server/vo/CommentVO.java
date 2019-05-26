@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CommentVO {
-
+    private String courseId;
     private String commenter;
     private String comment;
     private String time;

@@ -1,6 +1,5 @@
 package app.server.controller.pub;
 
-import app.server.bean.Comment;
 import app.server.service.CommentService;
 import app.server.service.CourseService;
 import app.server.vo.CommentVO;
@@ -12,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class pubController {
+public class PubController {
     @Autowired
     CommentService commentService;
     @Autowired
     CourseService courseService;
     @RequestMapping("/getCourseComment")
-    public CommentVO getCourseComment(String courseId){
+    public List<CommentVO> getCourseComment(String courseId){
         return commentService.getCourseComment(courseId);
     }
 
