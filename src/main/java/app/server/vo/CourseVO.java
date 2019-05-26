@@ -12,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CourseVO {
     private String ID;
+    private String name;
     private String teacherName;
     private List<Integer> scoreList = new ArrayList<>(5);
 }
