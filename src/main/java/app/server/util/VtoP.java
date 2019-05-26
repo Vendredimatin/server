@@ -2,6 +2,7 @@ package app.server.util;
 
 import app.server.bean.Comment;
 import app.server.bean.Course;
+import app.server.bean.RatingDetails;
 import app.server.vo.CommentVO;
 import app.server.vo.CourseVO;
 
@@ -13,17 +14,14 @@ public class VtoP {
     private VtoP(){}
     public Comment getComment(CommentVO vo){
         Comment comment = new Comment();
-        comment.setComment(vo.getComment());
+        comment.setCommentInfo(vo.getComment());
         comment.setCommenter(vo.getCommenter());
         comment.setCourseId(vo.getCourseId());
         comment.setAnswerTo(vo.getAnswerTo());
         comment.setLikes(vo.getLikes());
         List<Integer> scores = vo.getScoreList();
-        comment.setScore1(scores.get(0));
-        comment.setScore2(scores.get(1));
-        comment.setScore3(scores.get(2));
-        comment.setScore4(scores.get(3));
-        comment.setScore5(scores.get(4));
+        RatingDetails ratingDetails = new RatingDetails(scores.get(0),scores.get(1),scores.get(2),scores.get(3),scores.get(4));
+        comment.setRatingDetails(ratingDetails);
         comment.setTime(new Date());
         return comment;
     }

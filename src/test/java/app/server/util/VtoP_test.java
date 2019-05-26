@@ -47,7 +47,7 @@ public class VtoP_test {
         arrayList0.add(integer0);
         arrayList0.add(integer0);
         Comment comment0 = vtoP0.getComment(commentVO0);
-        assertNull(comment0.getComment());
+        assertNull(comment0.getCommentInfo());
     }
 
     @Test(timeout = 4000)
