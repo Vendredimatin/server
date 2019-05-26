@@ -23,5 +23,6 @@ public class Course {
     private int score3;
     private int score4;
     private int score5;
-    boolean anonymous = false;//是否匿名
+    private boolean alive = false;//是否激活
+    private boolean anonymous = false;//是否匿名
 }

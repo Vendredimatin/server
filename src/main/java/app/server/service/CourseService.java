@@ -11,4 +11,10 @@ public interface CourseService {
     String cancelCollect(String username,String courseId);
 
     CourseVO getCourseById(String id,String username);
+
+    String createCourse(String id, String name, String teacherName);
+
+    String confirmCourse(String id);
+
+    List<CourseVO> getUnconfirmList();
 }

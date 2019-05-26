@@ -73,7 +73,7 @@ public class CourseImpl implements CourseService {
 
     @Override
     public String cancelCollect(String username, String courseId) {
-        if(collectDAO.existsByCourseIdAndUsername(courseId,username)){
+        if(username!=null&&collectDAO.existsByCourseIdAndUsername(courseId,username)){
             collectDAO.deleteByCourseIdAndUsername(courseId,username);
             return SUC$;
         }
@@ -82,11 +82,39 @@ public class CourseImpl implements CourseService {
 
     @Override
     public CourseVO getCourseById(String id,String username) {
-        if(courseDAO.existsById(id)){
+        if(id!=null&&courseDAO.existsById(id)){
             CourseVO courseVO = PtoV.ptoV.getCourseVO(courseDAO.findById(id).get());
             if(collectDAO.existsByCourseIdAndUsername(id,username))courseVO.setCollect(true);
             return courseVO;
         }
+        return null;
+    }
+
+    @Override
+    public String createCourse(String id, String name, String teacherName) {
+        if(id==null||courseDAO.existsById(id))return FAIL$;
+        Course course = new Course();
+        course.setID(id);
+        course.setName(name);
+        course.setTeacherName(teacherName);
+        courseDAO.save(course);
+        return SUC$;
+    }
+
+    @Override
+    public String confirmCourse(String id) {
+        if(id!=null&&courseDAO.existsById(id)){
+            Course course = courseDAO.findById(id).get();
+            course.setAlive(true);
+            courseDAO.save(course);
+            return SUC$;
+        }
+        return FAIL$;
+    }
+
+    @Override
+    public List<CourseVO> getUnconfirmList() {
+        List<Course> courses = courseDAO.findAllByAlive(false);
         return null;
     }
 }

@@ -16,7 +16,7 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int iD;
-    private String answerTo;//回复的username
+    private String answerTo = null;//回复的commentId
     private String courseId;
     private String commenter;
     private String comment;
