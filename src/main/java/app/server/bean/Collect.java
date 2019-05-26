@@ -15,16 +15,16 @@ public class Collect {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int ID;
+    private int id;
     private String username;
     private String courseId;
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
