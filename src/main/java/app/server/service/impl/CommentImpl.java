@@ -21,17 +21,22 @@ import java.util.List;
 public class CommentImpl implements CommentService {
 
 
-    private static final String SUC$ = "SUCCESS";
-    private static final String FAIL$ = "FAILURE";
-    @Autowired
+    private static final String SUC = "SUCCESS";
+    private static final String FAIL = "FAILURE";
     CommentDAO commentDAO;
-    @Autowired
     CourseDAO courseDAO;
-    @Autowired
     LikeDAO likeDAO;
+    public CommentImpl(){}
+    @Autowired
+    public CommentImpl(CommentDAO commentDAO,CourseDAO courseDAO,LikeDAO likeDAO){
+        this.commentDAO = commentDAO;
+        this.courseDAO = courseDAO;
+        this.likeDAO = likeDAO;
+    }
+
     @Override
     public List<CommentVO> getCourseComment(String courseId,String username) {
-        if(commentDAO.existsByCourseId(courseId)&&courseDAO.existsById(courseId)) {
+        if(courseId!=null&&commentDAO.existsByCourseId(courseId)&&courseDAO.existsById(courseId)) {
 
                 Course course = courseDAO.findById(courseId).get();
                 boolean anonymous = course.isAnonymous();
@@ -61,9 +66,9 @@ public class CommentImpl implements CommentService {
             commentDAO.save(comment);
         }catch (Exception e){
             LoggerUtil.loggerUtil.logErr(e.getMessage());
-            return FAIL$;
+            return FAIL;
         }
-        return SUC$;
+        return SUC;
     }
 
     @Override
@@ -73,19 +78,19 @@ public class CommentImpl implements CommentService {
         like.setUsername(username);
         try {
             likeDAO.save(like);
-            return SUC$;
+            return SUC;
         }catch (Exception e){
             LoggerUtil.loggerUtil.logErr(e.getMessage());
-            return FAIL$;
+            return FAIL;
         }
     }
 
     @Override
     public String cancelLike(String username, int commentId) {
-        if(likeDAO.existsByCommentIdAndUsername(commentId,username)){
+        if(username!=null&&likeDAO.existsByCommentIdAndUsername(commentId,username)){
             likeDAO.deleteByCommentIdAndUsername(commentId,username);
-            return SUC$;
+            return SUC;
         }
-        return FAIL$;
+        return FAIL;
     }
 }

@@ -12,7 +12,7 @@ import java.util.logging.SimpleFormatter;
 public class LoggerUtil {
     /** 存放的文件夹 **/
     private String file_name = "ServerLog";
-    public static LoggerUtil loggerUtil = new LoggerUtil();
+    public static final LoggerUtil loggerUtil = new LoggerUtil();
     private Logger logger;
     private LoggerUtil(){
         logger = Logger.getLogger("TEST");
@@ -29,13 +29,13 @@ public class LoggerUtil {
     private String getLogName() {
         StringBuffer logPath = new StringBuffer();
         logPath.append(System.getProperty("user.home"));
-        logPath.append("\\"+file_name);
+        logPath.append("/"+file_name);
         File file = new File(logPath.toString());
         if (!file.exists())
             file.mkdir();
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        logPath.append("\\"+sdf.format(new Date())+".log");
+        logPath.append("/"+sdf.format(new Date())+".log");
 
         return logPath.toString();
     }

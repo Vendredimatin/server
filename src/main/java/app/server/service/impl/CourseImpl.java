@@ -17,13 +17,17 @@ import java.util.List;
 @Service
 public class CourseImpl implements CourseService {
     
-    private static final String SUC$ = "SUCCESS";
-    private static final String FAIL$ = "FAILURE";
+    private static final String SUC = "SUCCESS";
+    private static final String FAIL = "FAILURE";
 
-    @Autowired
     CourseDAO courseDAO;
-    @Autowired
     CollectDAO collectDAO;
+    public CourseImpl(){}
+    @Autowired
+    public CourseImpl(CourseDAO courseDAO,CollectDAO collectDAO){
+        this.courseDAO = courseDAO;
+        this.collectDAO = collectDAO;
+    }
 
     @Override
     public List<CourseVO> getCourses(String username) {
@@ -45,15 +49,15 @@ public class CourseImpl implements CourseService {
     @Override
     public String setCourseAnonymous(String id, boolean anonymous) {
 
-        if(courseDAO.existsById(id)) {
+        if(id!=null&&courseDAO.existsById(id)) {
             Course course = courseDAO.findById(id).get();
             if (course.isAnonymous() != anonymous) {
                 course.setAnonymous(anonymous);
                 courseDAO.save(course);
             }
-            return SUC$;
+            return SUC;
         }
-        return FAIL$;
+        return FAIL;
     }
 
     @Override
@@ -63,11 +67,11 @@ public class CourseImpl implements CourseService {
         collect.setUsername(username);
         try{
             collectDAO.save(collect);
-            return SUC$;
+            return SUC;
         }catch (Exception e){
             e.printStackTrace();
             LoggerUtil.loggerUtil.logErr("CollectERR "+username+courseId);
-            return FAIL$;
+            return FAIL;
         }
     }
 
@@ -75,9 +79,9 @@ public class CourseImpl implements CourseService {
     public String cancelCollect(String username, String courseId) {
         if(username!=null&&collectDAO.existsByCourseIdAndUsername(courseId,username)){
             collectDAO.deleteByCourseIdAndUsername(courseId,username);
-            return SUC$;
+            return SUC;
         }
-        return FAIL$;
+        return FAIL;
     }
 
     @Override
@@ -92,13 +96,13 @@ public class CourseImpl implements CourseService {
 
     @Override
     public String createCourse(String id, String name, String teacherName) {
-        if(id==null||courseDAO.existsById(id))return FAIL$;
+        if(id==null||courseDAO.existsById(id))return FAIL;
         Course course = new Course();
         course.setID(id);
         course.setName(name);
         course.setTeacherName(teacherName);
         courseDAO.save(course);
-        return SUC$;
+        return SUC;
     }
 
     @Override
@@ -107,9 +111,9 @@ public class CourseImpl implements CourseService {
             Course course = courseDAO.findById(id).get();
             course.setAlive(true);
             courseDAO.save(course);
-            return SUC$;
+            return SUC;
         }
-        return FAIL$;
+        return FAIL;
     }
 
     @Override

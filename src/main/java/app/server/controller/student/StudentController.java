@@ -1,27 +1,27 @@
 package app.server.controller.student;
 
-import app.server.bean.Collect;
-import app.server.bean.Like;
-import app.server.bean.Student;
 import app.server.service.CommentService;
 import app.server.service.CourseService;
 import app.server.service.StudentService;
 import app.server.util.LoggerUtil;
-import app.server.vo.CommentVO;
-import app.server.vo.CourseVO;
+import app.server.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class StudentController {
+    private CommentService commentService;
+    private StudentService studentService;
+    private CourseService courseService;
+
     @Autowired
-    CommentService commentService;
-    @Autowired
-    StudentService studentService;
-    @Autowired
-    CourseService courseService;
+    public StudentController(CommentService commentService,StudentService studentService,CourseService courseService){
+        this.commentService = commentService;
+        this.studentService = studentService;
+        this.courseService = courseService;
+    }
     @PostMapping(value = "/login")//String username,String password
-    public String login(@RequestBody Student student){
+    public String login(@RequestBody StudentVO student){
         LoggerUtil.loggerUtil.logInfo("login");
         LoggerUtil.loggerUtil.logInfo(student.getUsername());
         LoggerUtil.loggerUtil.logInfo(student.getPassword());
@@ -29,7 +29,7 @@ public class StudentController {
     }
 
     @PostMapping(value = "/register")//String username,String password,String admin,String college,String major,String studentNumber
-    public String register(@RequestBody Student student){
+    public String register(@RequestBody StudentVO student){
         LoggerUtil.loggerUtil.logInfo("register");
         LoggerUtil.loggerUtil.logInfo(student.getUsername());
         LoggerUtil.loggerUtil.logInfo(student.getPassword());
@@ -40,7 +40,7 @@ public class StudentController {
         return studentService.register(student.getUsername(),student.getPassword(),student.getSchool(),student.getCollege(),student.getMajor(),student.getStudentNumber());
     }
     @PostMapping(value = "/updateStudentInfo")//String username,String password,String admin,String college,String majorString studentNumber
-    public String updateStudentInfo(@RequestBody Student student){
+    public String updateStudentInfo(@RequestBody StudentVO student){
         LoggerUtil.loggerUtil.logInfo("updateStudentInfo");
         LoggerUtil.loggerUtil.logInfo(student.getUsername());
         LoggerUtil.loggerUtil.logInfo(student.getPassword());
@@ -51,7 +51,7 @@ public class StudentController {
         return studentService.updateStudentInfo(student.getUsername(),student.getSchool(),student.getCollege(),student.getMajor(),student.getStudentNumber());
     }
     @PostMapping(value = "/updateStudentPassword")//String username,String password,String admin,String college,String majorString studentNumber
-    public String updateStudentPassword(@RequestBody Student student){
+    public String updateStudentPassword(@RequestBody StudentVO student){
         LoggerUtil.loggerUtil.logInfo("updateStudentPassword");
         LoggerUtil.loggerUtil.logInfo(student.getUsername());
         LoggerUtil.loggerUtil.logInfo(student.getPassword());
@@ -66,21 +66,20 @@ public class StudentController {
         return commentService.comment(commentVO);
     }
     @RequestMapping(value = "/like")
-    public String like(@RequestBody Like like){
-        System.out.println(like.getCommentId());
+    public String like(@RequestBody LikeVO like){
         return commentService.like(like.getUsername(),like.getCommentId());
     }
     @RequestMapping(value = "/collect")
-    public String collect(@RequestBody Collect collect){
+    public String collect(@RequestBody CollectVO collect){
         return courseService.collect(collect.getUsername(),collect.getCourseId());
     }
 
     @RequestMapping(value = "/cancelLike")
-    public String cancelLike(@RequestBody Like like){
+    public String cancelLike(@RequestBody LikeVO like){
         return commentService.cancelLike(like.getUsername(),like.getCommentId());
     }
     @RequestMapping(value = "/cancelCollect")
-    public String cancelCollect(@RequestBody Collect collect){
+    public String cancelCollect(@RequestBody CollectVO collect){
         return courseService.cancelCollect(collect.getUsername(),collect.getCourseId());
     }
     @RequestMapping(value = "/createCourse")
