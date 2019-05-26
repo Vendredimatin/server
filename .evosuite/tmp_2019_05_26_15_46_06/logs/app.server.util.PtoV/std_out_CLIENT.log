@@ -1,3 +1,0 @@
-[MASTER] 15:49:29.168 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: E:\hackathron\server\.evosuite\evosuite-seeds\app.server.util.PtoV.seed
-[MASTER] 15:49:32.561 [TEST_EXECUTION_THREAD_0] WARN  TestUsageChecker - class codegen.java.text.ParsePosition$MockitoMock$1463478110 looks like an anonymous class, ignoring it (although reflection says false) ParsePosition$MockitoMock$1463478110
-[MASTER] 15:49:37.623 [TEST_EXECUTION_THREAD_0] WARN  TestUsageChecker - class codegen.java.text.Format$Field$MockitoMock$115545807 looks like an anonymous class, ignoring it (although reflection says false) Format$Field$MockitoMock$115545807

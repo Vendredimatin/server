@@ -1,4 +1,0 @@
-[MASTER] 15:49:07.057 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: E:\hackathron\server\.evosuite\evosuite-seeds\app.server.controller.pub.PubController.seed
-[MASTER] 15:49:08.720 [TEST_EXECUTION_THREAD_0] WARN  TestUsageChecker - class app.server.dao.CommentDAO$MockitoMock$1410128752 looks like an anonymous class, ignoring it (although reflection says false) CommentDAO$MockitoMock$1410128752
-[MASTER] 15:49:08.799 [TEST_EXECUTION_THREAD_0] WARN  TestUsageChecker - class app.server.dao.CourseDAO$MockitoMock$1881472081 looks like an anonymous class, ignoring it (although reflection says false) CourseDAO$MockitoMock$1881472081
-[MASTER] 15:49:10.855 [pool-2-thread-1] WARN  TestChromosome - Functional mock problem: java.lang.NullPointerException

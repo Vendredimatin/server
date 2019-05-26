@@ -1,2 +1,0 @@
-[MASTER] 15:46:24.456 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: E:\hackathron\server\.evosuite\evosuite-seeds\app.server.vo.CommentVO.seed
-[MASTER] 15:46:29.955 [pool-2-thread-1] WARN  TestChromosome - Functional mock problem: java.lang.NullPointerException
