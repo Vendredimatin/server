@@ -7,7 +7,6 @@ import app.server.vo.CourseVO;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
 
 public class PtoV {
     public static final PtoV ptoV = new PtoV();
@@ -22,7 +21,7 @@ public class PtoV {
         commentVO.setCourseId(po.getCourseId());
         commentVO.setAnswerTo(po.getAnswerTo());
         commentVO.setTime(dateFormatMin.format(po.getTime()));
-        List<Integer> scores = new ArrayList<>(5);
+        ArrayList<Integer> scores = new ArrayList<>(5);
         scores.add(po.getScore1());
         scores.add(po.getScore2());
         scores.add(po.getScore3());
@@ -37,7 +36,7 @@ public class PtoV {
         courseVO.setID(po.getID());
         courseVO.setName(po.getName());
         courseVO.setTeacherName(po.getTeacherName());
-        List<Integer> scores = new ArrayList<>(5);
+        ArrayList<Integer> scores = new ArrayList<>(5);
         scores.add(po.getScore1());
         scores.add(po.getScore2());
         scores.add(po.getScore3());
