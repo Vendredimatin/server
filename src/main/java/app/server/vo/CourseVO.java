@@ -16,4 +16,5 @@ public class CourseVO {
     private String teacherName;
     private List<Integer> scoreList = new ArrayList<>(5);
     boolean anonymous = false;
+    boolean collect = false;
 }
