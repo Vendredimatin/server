@@ -89,40 +89,6 @@ public class ServerApplicationTests {
         assertNull(string0);
     }
 
-    @Test(timeout = 4000)
-    public void test01()  throws Throwable  {
-        thrown.expect(NullPointerException.class);
-        StudentImpl studentImpl0 = new StudentImpl();
-        // Undeclared exception!
-        studentImpl0.updateStudentPassword("", "", "");
 
-    }
-
-    @Test(timeout = 4000)
-    public void test11()  throws Throwable  {
-        thrown.expect(NullPointerException.class);
-        StudentImpl studentImpl0 = new StudentImpl();
-        // Undeclared exception!
-        studentImpl0.updateStudentInfo("", "", "", "", "");
-
-    }
-
-    @Test(timeout = 4000)
-    public void test21()  throws Throwable  {
-        thrown.expect(NullPointerException.class);
-        StudentImpl studentImpl0 = new StudentImpl();
-        // Undeclared exception!
-        studentImpl0.register("", "", "", "", "", "");
-
-    }
-
-    @Test(timeout = 4000)
-    public void test31()  throws Throwable {
-        thrown.expect(NullPointerException.class);
-        StudentImpl studentImpl0 = new StudentImpl();
-        // Undeclared exception!
-        studentImpl0.login("", "");
-
-    }
 
 }
