@@ -17,4 +17,6 @@ public interface CourseService {
     String confirmCourse(String id);
 
     List<CourseVO> getUnconfirmList();
+
+    List<CourseVO> getCollectList(String username);
 }

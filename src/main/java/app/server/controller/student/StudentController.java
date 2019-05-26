@@ -8,6 +8,8 @@ import app.server.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class StudentController {
     private CommentService commentService;
@@ -85,5 +87,9 @@ public class StudentController {
     @RequestMapping(value = "/createCourse")
     public String createCourse(@RequestBody CourseVO courseVO){
         return courseService.createCourse(courseVO.getID(),courseVO.getName(),courseVO.getTeacherName());
+    }
+    @RequestMapping(value = "/getCollectList")
+    public List<CourseVO> getCollectList(String username){
+        return courseService.getCollectList(username);
     }
 }

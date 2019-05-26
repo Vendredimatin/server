@@ -20,8 +20,8 @@ public class CourseImpl implements CourseService {
     private static final String SUC = "SUCCESS";
     private static final String FAIL = "FAILURE";
 
-    CourseDAO courseDAO;
-    CollectDAO collectDAO;
+    private CourseDAO courseDAO;
+    private CollectDAO collectDAO;
     public CourseImpl(){}
     @Autowired
     public CourseImpl(CourseDAO courseDAO,CollectDAO collectDAO){
@@ -69,7 +69,7 @@ public class CourseImpl implements CourseService {
             collectDAO.save(collect);
             return SUC;
         }catch (Exception e){
-            LoggerUtil.loggerUtil.logErr("CollectERR "+username+courseId);
+            LoggerUtil.loggerUtil.logErr(e.getMessage());
             return FAIL;
         }
     }
@@ -118,6 +118,22 @@ public class CourseImpl implements CourseService {
     @Override
     public List<CourseVO> getUnconfirmList() {
         List<Course> courses = courseDAO.findAllByAlive(false);
-        return null;
+        List<CourseVO> res = new ArrayList<>();
+        for(Course course:courses){
+            res.add(PtoV.ptoV.getCourseVO(course));
+        }
+        return res;
+    }
+
+    @Override
+    public List<CourseVO> getCollectList(String username) {
+        List<CourseVO> courseVOS = getCourses(username);
+        List<CourseVO> res = new ArrayList<>();
+        for(CourseVO courseVO:courseVOS){
+            if(courseVO.isCollect()){
+                res.add(courseVO);
+            }
+        }
+        return res;
     }
 }
