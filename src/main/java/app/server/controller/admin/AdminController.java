@@ -19,8 +19,8 @@ public class AdminController {
         return courseService.setCourseAnonymous(course.getID(),course.isAnonymous());
     }
     @RequestMapping(value = "/confirmCourse")
-    public String confirmCourse(String ID){
-        return courseService.confirmCourse(ID);
+    public String confirmCourse(String id){
+        return courseService.confirmCourse(id);
     }
     @RequestMapping(value = "/getUnconfirmList")
     public List<CourseVO> getUnconfirmList(){
