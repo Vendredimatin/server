@@ -7,8 +7,6 @@ import app.server.util.LoggerUtil;
 import app.server.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @RestController
