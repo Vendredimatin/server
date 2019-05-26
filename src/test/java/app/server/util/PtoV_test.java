@@ -20,12 +20,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 
-/**
- * @Author：Liu hanyi
- * @Description：
- * @Date Created in ${Time} ${Date}
- * @Modified By:
- */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PtoV_test {
@@ -33,7 +27,7 @@ public class PtoV_test {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test(timeout = 4000)
-    public void test0()  throws Throwable  {
+    public void test0() {
         PtoV ptoV0 = PtoV.ptoV;
         Course course0 = new Course();
         course0.setAnonymous(true);
@@ -42,7 +36,7 @@ public class PtoV_test {
     }
 
     @Test(timeout = 4000)
-    public void test1()  throws Throwable  {
+    public void test1() {
         PtoV ptoV0 = PtoV.ptoV;
 
         Comment comment0 = new Comment();
@@ -54,7 +48,7 @@ public class PtoV_test {
     }
 
     @Test(timeout = 4000)
-    public void test2()  throws Throwable  {
+    public void test2() {
         PtoV ptoV0 = PtoV.ptoV;
         Comment comment0 = new Comment();
         Instant instant0 = Instant.EPOCH;
@@ -66,7 +60,7 @@ public class PtoV_test {
     }
 
     @Test(timeout = 4000)
-    public void test3()  throws Throwable  {
+    public void test3() {
         Comment comment0 = new Comment();
         Date date0 = new Date();
         comment0.setTime(date0);
@@ -76,7 +70,7 @@ public class PtoV_test {
     }
 
     @Test(timeout = 4000)
-    public void test4()  throws Throwable  {
+    public void test4() {
         PtoV ptoV0 = PtoV.ptoV;
         Comment comment0 = new Comment();
         Instant instant0 = Instant.EPOCH;
@@ -88,7 +82,7 @@ public class PtoV_test {
     }
 
     @Test(timeout = 4000)
-    public void test5()  throws Throwable  {
+    public void test5() {
         PtoV ptoV0 = PtoV.ptoV;
         Comment comment0 = new Comment();
         Instant instant0 = Instant.now();
@@ -100,16 +94,16 @@ public class PtoV_test {
     }
 
     @Test(timeout = 4000)
-    public void test6()  throws Throwable  {
+    public void test6() {
         thrown.expect(NullPointerException.class);
         PtoV ptoV0 = PtoV.ptoV;
         // Undeclared exception!
-        ptoV0.getCourseVO((Course) null);
+        ptoV0.getCourseVO(null);
 
     }
 
     @Test(timeout = 4000)
-    public void test7()  throws Throwable  {
+    public void test7() {
         thrown.expect(NullPointerException.class);
         Comment comment0 = new Comment();
         PtoV ptoV0 = PtoV.ptoV;
@@ -119,7 +113,7 @@ public class PtoV_test {
     }
 
     @Test(timeout = 4000)
-    public void test8()  throws Throwable  {
+    public void test8() {
         Course course0 = new Course();
         PtoV ptoV0 = PtoV.ptoV;
         CourseVO courseVO0 = ptoV0.getCourseVO(course0);

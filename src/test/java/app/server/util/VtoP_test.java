@@ -14,12 +14,6 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-/**
- * @Author：Liu hanyi
- * @Description：
- * @Date Created in ${Time} ${Date}
- * @Modified By:
- */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class VtoP_test {
@@ -27,11 +21,11 @@ public class VtoP_test {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test(timeout = 4000)
-    public void test0()  throws Throwable  {
+    public void test0() {
         VtoP vtoP0 = VtoP.vtoP;
         CommentVO commentVO0 = new CommentVO();
         ArrayList<Integer> arrayList0 = commentVO0.getScoreList();
-        Integer integer0 = new Integer(1);
+        Integer integer0 = 1;
         arrayList0.add(integer0);
         arrayList0.add(integer0);
         arrayList0.add(integer0);
@@ -42,11 +36,11 @@ public class VtoP_test {
     }
 
     @Test(timeout = 4000)
-    public void test1()  throws Throwable  {
+    public void test1() {
         VtoP vtoP0 = VtoP.vtoP;
         CommentVO commentVO0 = new CommentVO();
         ArrayList<Integer> arrayList0 = commentVO0.getScoreList();
-        Integer integer0 = new Integer((-1));
+        Integer integer0 = (-1);
         arrayList0.add(integer0);
         arrayList0.add(integer0);
         arrayList0.add(integer0);
@@ -57,11 +51,11 @@ public class VtoP_test {
     }
 
     @Test(timeout = 4000)
-    public void test2()  throws Throwable  {
+    public void test2() {
         VtoP vtoP0 = VtoP.vtoP;
         CommentVO commentVO0 = new CommentVO();
         ArrayList<Integer> arrayList0 = commentVO0.getScoreList();
-        Integer integer0 = new Integer(0);
+        Integer integer0 = 0;
         arrayList0.add(integer0);
         arrayList0.add(integer0);
         arrayList0.add(integer0);
@@ -73,11 +67,11 @@ public class VtoP_test {
     }
 
     @Test(timeout = 4000)
-    public void test3()  throws Throwable  {
+    public void test3() {
         VtoP vtoP0 = VtoP.vtoP;
         CommentVO commentVO0 = new CommentVO();
         ArrayList<Integer> arrayList0 = commentVO0.getScoreList();
-        Integer integer0 = new Integer(0);
+        Integer integer0 = 0;
         arrayList0.add(integer0);
         arrayList0.add(integer0);
         arrayList0.add(integer0);
@@ -89,16 +83,16 @@ public class VtoP_test {
     }
 
     @Test(timeout = 4000)
-    public void test4()  throws Throwable  {
+    public void test4() {
         thrown.expect(NullPointerException.class);
         VtoP vtoP0 = VtoP.vtoP;
         // Undeclared exception!
-        vtoP0.getComment((CommentVO) null);
+        vtoP0.getComment(null);
 
     }
 
     @Test(timeout = 4000)
-    public void test5()  throws Throwable  {
+    public void test5() {
         thrown.expect(IndexOutOfBoundsException.class);
         CommentVO commentVO0 = new CommentVO();
         VtoP vtoP0 = VtoP.vtoP;
