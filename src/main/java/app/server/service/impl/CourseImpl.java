@@ -40,7 +40,7 @@ public class CourseImpl implements CourseService {
         }
         for(Course course:courses){
             CourseVO courseVO = PtoV.ptoV.getCourseVO(course);
-            if(cids.contains(course.getID()))courseVO.setCollect(true);
+            if(cids.contains(course.getId()))courseVO.setCollect(true);
             res.add(courseVO);
         }
         return res;
@@ -97,7 +97,7 @@ public class CourseImpl implements CourseService {
     public String createCourse(String id, String name, String teacherName) {
         if(id==null||courseDAO.existsById(id))return FAIL;
         Course course = new Course();
-        course.setID(id);
+        course.setId(id);
         course.setName(name);
         course.setTeacherName(teacherName);
         courseDAO.save(course);
