@@ -16,8 +16,11 @@ public class PtoV {
     public CommentVO getCommentVO(Comment po){
         CommentVO commentVO = new CommentVO();
         commentVO.setComment(po.getComment());
+        commentVO.setID(po.getID());
+        commentVO.setLikes(po.getLikes());
         commentVO.setCommenter(po.getCommenter());
         commentVO.setCourseId(po.getCourseId());
+        commentVO.setReplyComment(po.getReplyComment());
         commentVO.setTime(dateFormat_min.format(po.getTime()));
         List<Integer> scores = new ArrayList<>(5);
         scores.add(po.getScore1());

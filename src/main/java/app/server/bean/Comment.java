@@ -16,9 +16,11 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int ID;
+    private String replyComment;//回复的commentId
     private String courseId;
     private String commenter;
     private String comment;
+    private int likes;//点赞数
     private Date time;
     private int score1,score2,score3,score4,score5;
 }

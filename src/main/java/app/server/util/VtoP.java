@@ -16,6 +16,8 @@ public class VtoP {
         comment.setComment(vo.getComment());
         comment.setCommenter(vo.getCommenter());
         comment.setCourseId(vo.getCourseId());
+        comment.setReplyComment(vo.getReplyComment());
+        comment.setLikes(vo.getLikes());
         List<Integer> scores = vo.getScoreList();
         comment.setScore1(scores.get(0));
         comment.setScore2(scores.get(1));
