@@ -10,19 +10,23 @@ import org.springframework.stereotype.Service;
 public class StudentImpl implements StudentService {
 
 
-    private static final String SUC$ = "SUCCESS";
-    private static final String FAIL$ = "FAILURE";
-    @Autowired
+    private static final String SUC = "SUCCESS";
+    private static final String FAIL = "FAILURE";
     StudentDAO studentDAO;
+
+    @Autowired
+    public StudentImpl(StudentDAO studentDAO){
+        this.studentDAO = studentDAO;
+    }
     @Override
     public String login(String username, String password) {
         if(studentDAO.existsById(username)) {
             Student student = studentDAO.findById(username).get();
             String rightPass = student.getPassword();
-            if (!rightPass.equals(password)) return FAIL$;
-            return SUC$;
+            if (!rightPass.equals(password)) return FAIL;
+            return SUC;
         }
-        return FAIL$;
+        return FAIL;
     }
 
     @Override
@@ -30,7 +34,7 @@ public class StudentImpl implements StudentService {
         if(studentDAO.existsById(username))return "EXIST";
         Student student = new Student(username,password,school,college,major,studentNumber);
         studentDAO.save(student);
-        return SUC$;
+        return SUC;
     }
 
     @Override
@@ -42,9 +46,9 @@ public class StudentImpl implements StudentService {
             student.setMajor(major);
             student.setStudentNumber(studentNumber);
             studentDAO.save(student);
-            return SUC$;
+            return SUC;
         }
-        return FAIL$;
+        return FAIL;
     }
 
     @Override
@@ -54,9 +58,9 @@ public class StudentImpl implements StudentService {
             if(student.getPassword().equals(password)){
                 student.setPassword(newPass);
                 studentDAO.save(student);
-                return SUC$;
+                return SUC;
             }
         }
-        return FAIL$;
+        return FAIL;
     }
 }
