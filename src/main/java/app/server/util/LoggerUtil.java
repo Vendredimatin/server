@@ -28,7 +28,6 @@ public class LoggerUtil {
      */
     private String getLogName() {
         StringBuffer logPath = new StringBuffer();
-        logPath.append(System.getProperty("user.home"));
         logPath.append("/"+file_name);
         File file = new File(logPath.toString());
         if (!file.exists())
