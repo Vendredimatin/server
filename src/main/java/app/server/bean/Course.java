@@ -1,6 +1,6 @@
 package app.server.bean;
 
-import app.server.converter.ObjectConverter;
+import app.server.converter.RatingDetainsConverter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +20,7 @@ public class Course {
     private String id;
     private String name;
     private String teacherName;
-    @Convert(converter = ObjectConverter.class)
+    @Convert(converter = RatingDetainsConverter.class)
     private RatingDetails ratingDetails;
     private boolean alive = false;//是否激活
     private boolean anonymous = false;//是否匿名

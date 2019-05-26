@@ -1,6 +1,6 @@
 package app.server.bean;
 
-import app.server.converter.ObjectConverter;
+import app.server.converter.RatingDetainsConverter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +23,7 @@ public class Comment {
     private String commentInfo;
     private int likes;//点赞数
     private Date time;
-    @Convert(converter = ObjectConverter.class)
+    @Convert(converter = RatingDetainsConverter.class)
     private RatingDetails ratingDetails;
 
     public RatingDetails getRatingDetails() {

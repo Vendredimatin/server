@@ -20,7 +20,7 @@ public class Course_test {
     @Test
     public void test1(){
         Course course = new Course();
-        course.setId("1");
+        course.setId("2");
         course.setName("1");
         course.setTeacherName("2");
         RatingDetails ratingDetails = new RatingDetails(1,2,3,4,5);
