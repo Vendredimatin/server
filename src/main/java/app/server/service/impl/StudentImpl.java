@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class StudentImpl implements StudentService {
+
+
+    private static final String SUC$ = "SUCCESS";
+    private static final String FAIL$ = "FAILURE";
     @Autowired
     StudentDAO studentDAO;
     @Override
@@ -15,10 +19,10 @@ public class StudentImpl implements StudentService {
         if(studentDAO.existsById(username)) {
             Student student = studentDAO.findById(username).get();
             String rightPass = student.getPassword();
-            if (!rightPass.equals(password)) return "FAILURE";
-            return "SUCCESS";
+            if (!rightPass.equals(password)) return FAIL$;
+            return SUC$;
         }
-        return "FAILURE";
+        return FAIL$;
     }
 
     @Override
@@ -26,7 +30,7 @@ public class StudentImpl implements StudentService {
         if(studentDAO.existsById(username))return "EXIST";
         Student student = new Student(username,password,school,college,major,studentNumber);
         studentDAO.save(student);
-        return "SUCCESS";
+        return SUC$;
     }
 
     @Override
@@ -38,9 +42,9 @@ public class StudentImpl implements StudentService {
             student.setMajor(major);
             student.setStudentNumber(studentNumber);
             studentDAO.save(student);
-            return "SUCCESS";
+            return SUC$;
         }
-        return "FAILURE";
+        return FAIL$;
     }
 
     @Override
@@ -50,9 +54,9 @@ public class StudentImpl implements StudentService {
             if(student.getPassword().equals(password)){
                 student.setPassword(newPass);
                 studentDAO.save(student);
-                return "SUCCESS";
+                return SUC$;
             }
         }
-        return "FAILURE";
+        return FAIL$;
     }
 }

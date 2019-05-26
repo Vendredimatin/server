@@ -19,6 +19,10 @@ import java.util.List;
 
 @Service
 public class CommentImpl implements CommentService {
+
+
+    private static final String SUC$ = "SUCCESS";
+    private static final String FAIL$ = "FAILURE";
     @Autowired
     CommentDAO commentDAO;
     @Autowired
@@ -27,24 +31,27 @@ public class CommentImpl implements CommentService {
     LikeDAO likeDAO;
     @Override
     public List<CommentVO> getCourseComment(String courseId,String username) {
-        if(!commentDAO.existsByCourseId(courseId))return null;
-        if(!courseDAO.existsById(courseId))return null;
-        Course course = courseDAO.findById(courseId).get();
-        boolean anonymous = course.isAnonymous();
-        List<Comment> comments = commentDAO.findAllByCourseId(courseId);
-        List<CommentVO> res = new ArrayList<>();
-        List<Like> likes = likeDAO.findAllByUsername(username);
-        List<Integer> cids = new ArrayList<>();
-        for(Like like:likes){
-            cids.add(like.getCommentId());
+        if(commentDAO.existsByCourseId(courseId)&&courseDAO.existsById(courseId)) {
+
+                Course course = courseDAO.findById(courseId).get();
+                boolean anonymous = course.isAnonymous();
+                List<Comment> comments = commentDAO.findAllByCourseId(courseId);
+                List<CommentVO> res = new ArrayList<>();
+                List<Like> likes = likeDAO.findAllByUsername(username);
+                List<Integer> cids = new ArrayList<>();
+                for (Like like : likes) {
+                    cids.add(like.getCommentId());
+                }
+                for (Comment comment : comments) {
+                    if (anonymous) comment.setCommenter("匿名用户");
+                    CommentVO commentVO = PtoV.ptoV.getCommentVO(comment);
+                    if (cids.contains(comment.getID())) commentVO.setLike(true);
+                    res.add(commentVO);
+                }
+                return res;
+
         }
-        for(Comment comment: comments){
-            if(anonymous)comment.setCommenter("匿名用户");
-            CommentVO commentVO = PtoV.ptoV.getCommentVO(comment);
-            if(cids.contains(comment.getID()))commentVO.setLike(true);
-            res.add(commentVO);
-        }
-        return res;
+        return new ArrayList<>();
     }
 
     @Override
@@ -53,10 +60,10 @@ public class CommentImpl implements CommentService {
         try {
             commentDAO.save(comment);
         }catch (Exception e){
-            e.printStackTrace();
-            return "FAILURE";
+            LoggerUtil.loggerUtil.logErr(e.getMessage());
+            return FAIL$;
         }
-        return "SUCCESS";
+        return SUC$;
     }
 
     @Override
@@ -66,11 +73,10 @@ public class CommentImpl implements CommentService {
         like.setUsername(username);
         try {
             likeDAO.save(like);
-            return "SUCCESS";
+            return SUC$;
         }catch (Exception e){
-            LoggerUtil.loggerUtil.logErr("LikeErr "+username+commentId);
-            e.printStackTrace();
-            return "FAILURE";
+            LoggerUtil.loggerUtil.logErr(e.getMessage());
+            return FAIL$;
         }
     }
 
@@ -78,8 +84,8 @@ public class CommentImpl implements CommentService {
     public String cancelLike(String username, int commentId) {
         if(likeDAO.existsByCommentIdAndUsername(commentId,username)){
             likeDAO.deleteByCommentIdAndUsername(commentId,username);
-            return "SUCCESS";
+            return SUC$;
         }
-        return "FAILURE";
+        return FAIL$;
     }
 }

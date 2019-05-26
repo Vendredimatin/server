@@ -16,6 +16,9 @@ import java.util.List;
 
 @Service
 public class CourseImpl implements CourseService {
+    
+    private static final String SUC$ = "SUCCESS";
+    private static final String FAIL$ = "FAILURE";
 
     @Autowired
     CourseDAO courseDAO;
@@ -41,13 +44,16 @@ public class CourseImpl implements CourseService {
 
     @Override
     public String setCourseAnonymous(String id, boolean anonymous) {
-        if(!courseDAO.existsById(id))return "FAILURE";
-        Course course = courseDAO.findById(id).get();
-        if(course.isAnonymous()!=anonymous) {
-            course.setAnonymous(anonymous);
-            courseDAO.save(course);
+
+        if(courseDAO.existsById(id)) {
+            Course course = courseDAO.findById(id).get();
+            if (course.isAnonymous() != anonymous) {
+                course.setAnonymous(anonymous);
+                courseDAO.save(course);
+            }
+            return SUC$;
         }
-        return "SUCCESS";
+        return FAIL$;
     }
 
     @Override
@@ -57,11 +63,11 @@ public class CourseImpl implements CourseService {
         collect.setUsername(username);
         try{
             collectDAO.save(collect);
-            return "SUCCESS";
+            return SUC$;
         }catch (Exception e){
             e.printStackTrace();
             LoggerUtil.loggerUtil.logErr("CollectERR "+username+courseId);
-            return "FAILURE";
+            return FAIL$;
         }
     }
 
@@ -69,9 +75,9 @@ public class CourseImpl implements CourseService {
     public String cancelCollect(String username, String courseId) {
         if(collectDAO.existsByCourseIdAndUsername(courseId,username)){
             collectDAO.deleteByCourseIdAndUsername(courseId,username);
-            return "SUCCESS";
+            return SUC$;
         }
-        return "FAILURE";
+        return FAIL$;
     }
 
     @Override

@@ -15,12 +15,16 @@ import java.util.Date;
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int ID;
-    private String replyComment;//回复的commentId
+    private int iD;
+    private String answerTo;//回复的username
     private String courseId;
     private String commenter;
     private String comment;
     private int likes;//点赞数
     private Date time;
-    private int score1,score2,score3,score4,score5;
+    private int score1;
+    private int score2;
+    private int score3;
+    private int score4;
+    private int score5;
 }

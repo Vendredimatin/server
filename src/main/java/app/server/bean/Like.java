@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int ID;
+    private int iD;
     private String username;
     private int commentId;
 }

@@ -15,9 +15,13 @@ import javax.persistence.Table;
 @Table(name = "course")
 public class Course {
     @Id
-    private String ID;
+    private String iD;
     private String name;
     private String teacherName;
-    private int score1,score2,score3,score4,score5;
+    private int score1;
+    private int score2;
+    private int score3;
+    private int score4;
+    private int score5;
     boolean anonymous = false;//是否匿名
 }
