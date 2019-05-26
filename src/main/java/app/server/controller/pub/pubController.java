@@ -18,7 +18,7 @@ public class pubController {
     @Autowired
     CourseService courseService;
     @RequestMapping("/getCourseComment")
-    public CommentVO getCourseComment(String courseId){
+    public List<CommentVO> getCourseComment(String courseId){
         return commentService.getCourseComment(courseId);
     }
 
