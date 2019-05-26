@@ -26,6 +26,7 @@ public class CommentImpl implements CommentService {
     CommentDAO commentDAO;
     CourseDAO courseDAO;
     LikeDAO likeDAO;
+    public CommentImpl(){}
     @Autowired
     public CommentImpl(CommentDAO commentDAO,CourseDAO courseDAO,LikeDAO likeDAO){
         this.commentDAO = commentDAO;

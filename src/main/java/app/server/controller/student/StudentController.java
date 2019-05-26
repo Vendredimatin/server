@@ -20,6 +20,13 @@ public class StudentController {
     StudentService studentService;
     @Autowired
     CourseService courseService;
+
+//    @Autowired
+//    public StudentController(CommentService commentService,StudentService studentService,CourseService courseService){
+//        this.commentService = commentService;
+//        this.studentService = studentService;
+//        this.courseService = courseService;
+//    }
     @PostMapping(value = "/login")//String username,String password
     public String login(@RequestBody Student student){
         LoggerUtil.loggerUtil.logInfo("login");

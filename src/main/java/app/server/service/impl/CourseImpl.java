@@ -22,7 +22,7 @@ public class CourseImpl implements CourseService {
 
     CourseDAO courseDAO;
     CollectDAO collectDAO;
-
+    public CourseImpl(){}
     @Autowired
     public CourseImpl(CourseDAO courseDAO,CollectDAO collectDAO){
         this.courseDAO = courseDAO;

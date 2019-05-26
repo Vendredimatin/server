@@ -6,7 +6,6 @@ import app.server.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
 
 @Service
 public class StudentImpl implements StudentService {
@@ -15,7 +14,7 @@ public class StudentImpl implements StudentService {
     private static final String SUC = "SUCCESS";
     private static final String FAIL = "FAILURE";
     StudentDAO studentDAO;
-
+    public StudentImpl(){}
     @Autowired
     public StudentImpl(StudentDAO studentDAO){
         this.studentDAO = studentDAO;
