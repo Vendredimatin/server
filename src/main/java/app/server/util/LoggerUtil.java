@@ -28,8 +28,8 @@ public class LoggerUtil {
     private String getLogName() {
         AtomicReference<StringBuilder> logPath = new AtomicReference<>(new StringBuilder());
         /* 存放的文件夹 **/
-        AtomicReference<String> file_name = new AtomicReference<>("ServerLog");
-        logPath.get().append("/"+ file_name);
+        AtomicReference<String> fileName = new AtomicReference<>("ServerLog");
+        logPath.get().append("/"+ fileName);
         File file = new File(logPath.toString());
         if (!file.exists()) file.mkdir();
 
@@ -45,7 +45,7 @@ public class LoggerUtil {
      * @throws SecurityException
      * @throws IOException
      */
-    private void setLogingProperties(Logger logger) throws SecurityException, IOException {
+    private void setLogingProperties(Logger logger) throws IOException {
         setLogingProperties(logger, Level.ALL);
     }
 
