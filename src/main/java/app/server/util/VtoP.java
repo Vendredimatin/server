@@ -36,6 +36,7 @@ public class VtoP {
         course.setScore4(scores.get(3));
         course.setScore5(scores.get(4));
         course.setTeacherName(vo.getTeacherName());
+        course.setAnonymous(vo.isAnonymous());
         return course;
     }
 }

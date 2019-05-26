@@ -19,4 +19,5 @@ public class Course {
     private String name;
     private String teacherName;
     private int score1,score2,score3,score4,score5;
+    boolean anonymous = false;//是否匿名
 }

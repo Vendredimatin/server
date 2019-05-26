@@ -41,6 +41,7 @@ public class PtoV {
         scores.add(po.getScore4());
         scores.add(po.getScore5());
         courseVO.setScoreList(scores);
+        courseVO.setAnonymous(po.isAnonymous());
         return courseVO;
     }
 }
