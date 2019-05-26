@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "course")
 public class Course {
     @Id
-    private String iD;
+    private String ID;
     private String name;
     private String teacherName;
     private int score1;

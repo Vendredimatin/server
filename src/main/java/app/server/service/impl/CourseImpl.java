@@ -69,7 +69,6 @@ public class CourseImpl implements CourseService {
             collectDAO.save(collect);
             return SUC;
         }catch (Exception e){
-            e.printStackTrace();
             LoggerUtil.loggerUtil.logErr("CollectERR "+username+courseId);
             return FAIL;
         }
