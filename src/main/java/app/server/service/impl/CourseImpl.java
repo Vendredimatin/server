@@ -1,8 +1,11 @@
 package app.server.service.impl;
 
+import app.server.bean.Collect;
 import app.server.bean.Course;
+import app.server.dao.CollectDAO;
 import app.server.dao.CourseDAO;
 import app.server.service.CourseService;
+import app.server.util.LoggerUtil;
 import app.server.util.PtoV;
 import app.server.vo.CourseVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +19,22 @@ public class CourseImpl implements CourseService {
 
     @Autowired
     CourseDAO courseDAO;
+    @Autowired
+    CollectDAO collectDAO;
 
     @Override
-    public List<CourseVO> getCourses() {
+    public List<CourseVO> getCourses(String username) {
         List<Course> courses = courseDAO.findAll();
         List<CourseVO> res = new ArrayList<>();
+        List<Collect> collects = collectDAO.findAllByUsername(username);
+        List<String> cids = new ArrayList<>();
+        for(Collect c:collects){
+            cids.add(c.getCourseId());
+        }
         for(Course course:courses){
-            res.add(PtoV.ptoV.getCourseVO(course));
+            CourseVO courseVO = PtoV.ptoV.getCourseVO(course);
+            if(cids.contains(course.getID()))courseVO.setCollect(true);
+            res.add(courseVO);
         }
         return res;
     }
@@ -36,5 +48,39 @@ public class CourseImpl implements CourseService {
             courseDAO.save(course);
         }
         return "SUCCESS";
+    }
+
+    @Override
+    public String collect(String username, String courseId) {
+        Collect collect = new Collect();
+        collect.setCourseId(courseId);
+        collect.setUsername(username);
+        try{
+            collectDAO.save(collect);
+            return "SUCCESS";
+        }catch (Exception e){
+            e.printStackTrace();
+            LoggerUtil.loggerUtil.logErr("CollectERR "+username+courseId);
+            return "FAILURE";
+        }
+    }
+
+    @Override
+    public String cancelCollect(String username, String courseId) {
+        if(collectDAO.existsByCourseIdAndUsername(courseId,username)){
+            collectDAO.deleteByCourseIdAndUsername(courseId,username);
+            return "SUCCESS";
+        }
+        return "FAILURE";
+    }
+
+    @Override
+    public CourseVO getCourseById(String id,String username) {
+        if(courseDAO.existsById(id)){
+            CourseVO courseVO = PtoV.ptoV.getCourseVO(courseDAO.findById(id).get());
+            if(collectDAO.existsByCourseIdAndUsername(id,username))courseVO.setCollect(true);
+            return courseVO;
+        }
+        return null;
     }
 }

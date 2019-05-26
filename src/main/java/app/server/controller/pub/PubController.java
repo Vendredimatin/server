@@ -17,13 +17,18 @@ public class PubController {
     @Autowired
     CourseService courseService;
     @RequestMapping("/getCourseComment")
-    public List<CommentVO> getCourseComment(String courseId){
-        return commentService.getCourseComment(courseId);
+    public List<CommentVO> getCourseComment(String courseId,String username){
+        return commentService.getCourseComment(courseId,username);
     }
 
     @RequestMapping("/getCourses")
-    public List<CourseVO> getCourses(){
-        return courseService.getCourses();
+    public List<CourseVO> getCourses(String username){
+        return courseService.getCourses(username);
+    }
+
+    @RequestMapping("/getCourseById")
+    public CourseVO getCourseById(String ID,String username){
+        return courseService.getCourseById(ID,username);
     }
 
 }

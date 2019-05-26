@@ -17,7 +17,8 @@ public class Student {
     @Id
     private String username;
     private String password;
-    private String school;
+    private String school;//学校
+    private String college;//学院
+    private String major;//专业
     private String studentNumber;
-
 }
