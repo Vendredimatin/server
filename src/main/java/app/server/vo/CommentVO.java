@@ -10,7 +10,7 @@ import java.util.ArrayList;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CommentVO {
-    private int iD;
+    private int id;
     private String answerTo;
     private String courseId;
     private String commenter;
@@ -19,4 +19,76 @@ public class CommentVO {
     private String time;
     private boolean like = false;//当前用户是否已经点赞
     private ArrayList<Integer> scoreList = new ArrayList<>(5);
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getAnswerTo() {
+        return answerTo;
+    }
+
+    public void setAnswerTo(String answerTo) {
+        this.answerTo = answerTo;
+    }
+
+    public String getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
+    }
+
+    public String getCommenter() {
+        return commenter;
+    }
+
+    public void setCommenter(String commenter) {
+        this.commenter = commenter;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public boolean isLike() {
+        return like;
+    }
+
+    public void setLike(boolean like) {
+        this.like = like;
+    }
+
+    public ArrayList<Integer> getScoreList() {
+        return scoreList;
+    }
+
+    public void setScoreList(ArrayList<Integer> scoreList) {
+        this.scoreList = scoreList;
+    }
 }

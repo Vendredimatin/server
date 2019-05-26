@@ -16,7 +16,7 @@ public class AdminController {
     CourseService courseService;
     @RequestMapping(value = "/setCourseAnonymous")
     public String setCourseAnonymous(@RequestBody CourseVO course){
-        return courseService.setCourseAnonymous(course.getID(),course.isAnonymous());
+        return courseService.setCourseAnonymous(course.getId(),course.isAnonymous());
     }
     @RequestMapping(value = "/confirmCourse")
     public String confirmCourse(String id){

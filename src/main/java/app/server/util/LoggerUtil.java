@@ -4,14 +4,13 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 public class LoggerUtil {
-    /** 存放的文件夹 **/
-    private String file_name = "ServerLog";
     public static final LoggerUtil loggerUtil = new LoggerUtil();
     private Logger logger;
     private LoggerUtil(){
@@ -24,17 +23,18 @@ public class LoggerUtil {
     }
     /**
      * 得到要记录的日志的路径及文件名称
-     * @return
+     * @return String 日志路径
      */
     private String getLogName() {
-        StringBuffer logPath = new StringBuffer();
-        logPath.append("/"+file_name);
+        AtomicReference<StringBuilder> logPath = new AtomicReference<>(new StringBuilder());
+        /* 存放的文件夹 **/
+        AtomicReference<String> file_name = new AtomicReference<>("ServerLog");
+        logPath.get().append("/"+ file_name);
         File file = new File(logPath.toString());
-        if (!file.exists())
-            file.mkdir();
+        if (!file.exists()) file.mkdir();
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        logPath.append("/"+sdf.format(new Date())+".log");
+        logPath.get().append("/"+sdf.format(new Date())+".log");
 
         return logPath.toString();
     }
@@ -61,7 +61,7 @@ public class LoggerUtil {
         try {
             fh = new FileHandler(getLogName(),true);
             logger.addHandler(fh);//日志输出文件
-            //logger.setLevel(level);
+            // logger.setLevel(level);
             fh.setFormatter(new SimpleFormatter());//输出格式
             //logger.addHandler(new ConsoleHandler());//输出到控制台
         } catch (SecurityException e) {

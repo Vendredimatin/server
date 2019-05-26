@@ -49,8 +49,8 @@ public class Course_impl_test {
     @Test(timeout = 4000)
     public void test02()  throws Throwable  {
         CourseVO courseVO0 = new CourseVO();
-        courseVO0.setID("C");
-        courseVO0.getID();
+        courseVO0.setId("C");
+        courseVO0.getId();
         assertFalse(courseVO0.isAnonymous());
         assertFalse(courseVO0.isCollect());
     }
@@ -58,8 +58,8 @@ public class Course_impl_test {
     @Test(timeout = 4000)
     public void test03()  throws Throwable  {
         CourseVO courseVO0 = new CourseVO();
-        courseVO0.setID("");
-        courseVO0.getID();
+        courseVO0.setId("");
+        courseVO0.getId();
         assertFalse(courseVO0.isCollect());
         assertFalse(courseVO0.isAnonymous());
     }
@@ -140,7 +140,7 @@ public class Course_impl_test {
     @Test(timeout = 4000)
     public void test12()  throws Throwable  {
         CourseVO courseVO0 = new CourseVO();
-        courseVO0.getID();
+        courseVO0.getId();
         assertFalse(courseVO0.isAnonymous());
         assertFalse(courseVO0.isCollect());
     }

@@ -28,8 +28,8 @@ public class PubController {
     }
 
     @RequestMapping("/getCourseById")
-    public CourseVO getCourseById(String ID,String username){
-        return courseService.getCourseById(ID,username);
+    public CourseVO getCourseById(String id,String username){
+        return courseService.getCourseById(id,username);
     }
 
 }

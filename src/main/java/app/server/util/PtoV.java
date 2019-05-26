@@ -15,7 +15,7 @@ public class PtoV {
     public CommentVO getCommentVO(Comment po){
         CommentVO commentVO = new CommentVO();
         commentVO.setComment(po.getComment());
-        commentVO.setID(po.getId());
+        commentVO.setId(po.getId());
         commentVO.setLikes(po.getLikes());
         commentVO.setCommenter(po.getCommenter());
         commentVO.setCourseId(po.getCourseId());
@@ -33,7 +33,7 @@ public class PtoV {
 
     public CourseVO getCourseVO(Course po){
         CourseVO courseVO = new CourseVO();
-        courseVO.setID(po.getId());
+        courseVO.setId(po.getId());
         courseVO.setName(po.getName());
         courseVO.setTeacherName(po.getTeacherName());
         ArrayList<Integer> scores = new ArrayList<>(5);

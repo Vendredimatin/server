@@ -13,7 +13,7 @@ public class StudentImpl implements StudentService {
 
     private static final String SUC = "SUCCESS";
     private static final String FAIL = "FAILURE";
-    StudentDAO studentDAO;
+    private StudentDAO studentDAO;
     public StudentImpl(){}
     @Autowired
     public StudentImpl(StudentDAO studentDAO){

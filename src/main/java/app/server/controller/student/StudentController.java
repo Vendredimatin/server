@@ -87,7 +87,7 @@ public class StudentController {
     }
     @RequestMapping(value = "/createCourse")
     public String createCourse(@RequestBody CourseVO courseVO){
-        return courseService.createCourse(courseVO.getID(),courseVO.getName(),courseVO.getTeacherName());
+        return courseService.createCourse(courseVO.getId(),courseVO.getName(),courseVO.getTeacherName());
     }
     @RequestMapping(value = "/getCollectList")
     public List<CourseVO> getCollectList(String username){

@@ -23,9 +23,9 @@ public class CommentImpl implements CommentService {
 
     private static final String SUC = "SUCCESS";
     private static final String FAIL = "FAILURE";
-    CommentDAO commentDAO;
-    CourseDAO courseDAO;
-    LikeDAO likeDAO;
+    private CommentDAO commentDAO;
+    private CourseDAO courseDAO;
+    private LikeDAO likeDAO;
     public CommentImpl(){}
     @Autowired
     public CommentImpl(CommentDAO commentDAO,CourseDAO courseDAO,LikeDAO likeDAO){
