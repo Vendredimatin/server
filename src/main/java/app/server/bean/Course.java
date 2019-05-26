@@ -1,9 +1,11 @@
 package app.server.bean;
 
+import app.server.converter.ObjectConverter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -18,6 +20,7 @@ public class Course {
     private String id;
     private String name;
     private String teacherName;
+    @Convert(converter = ObjectConverter.class)
     private RatingDetails ratingDetails;
     private boolean alive = false;//是否激活
     private boolean anonymous = false;//是否匿名
@@ -50,6 +53,14 @@ public class Course {
         return alive;
     }
 
+    public RatingDetails getRatingDetails() {
+        return ratingDetails;
+    }
+
+    public void setRatingDetails(RatingDetails ratingDetails) {
+        this.ratingDetails = ratingDetails;
+    }
+
     public void setAlive(boolean alive) {
         this.alive = alive;
     }
@@ -61,4 +72,6 @@ public class Course {
     public void setAnonymous(boolean anonymous) {
         this.anonymous = anonymous;
     }
+
+
 }
