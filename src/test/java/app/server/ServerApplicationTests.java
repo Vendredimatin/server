@@ -2,7 +2,9 @@ package app.server;
 
 import app.server.bean.Collect;
 import app.server.service.impl.StudentImpl;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -15,6 +17,8 @@ import static org.junit.Assert.fail;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ServerApplicationTests {
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test(timeout = 4000)
     public void test0()  throws Throwable  {
@@ -87,66 +91,38 @@ public class ServerApplicationTests {
 
     @Test(timeout = 4000)
     public void test01()  throws Throwable  {
+        thrown.expect(NullPointerException.class);
         StudentImpl studentImpl0 = new StudentImpl();
         // Undeclared exception!
-        try {
-            studentImpl0.updateStudentPassword("", "", "");
-            fail("Expecting exception: NoClassDefFoundError");
+        studentImpl0.updateStudentPassword("", "", "");
 
-        } catch(NoClassDefFoundError e) {
-            //
-            // main/java/dao/StudentDAO
-            //
-            verifyException("service.impl.StudentImpl", e);
-        }
     }
 
     @Test(timeout = 4000)
     public void test11()  throws Throwable  {
+        thrown.expect(NullPointerException.class);
         StudentImpl studentImpl0 = new StudentImpl();
         // Undeclared exception!
-        try {
-            studentImpl0.updateStudentInfo("", "", "", "", "");
-            fail("Expecting exception: NoClassDefFoundError");
+        studentImpl0.updateStudentInfo("", "", "", "", "");
 
-        } catch(NoClassDefFoundError e) {
-            //
-            // main/java/dao/StudentDAO
-            //
-            verifyException("service.impl.StudentImpl", e);
-        }
     }
 
     @Test(timeout = 4000)
     public void test21()  throws Throwable  {
+        thrown.expect(NullPointerException.class);
         StudentImpl studentImpl0 = new StudentImpl();
         // Undeclared exception!
-        try {
-            studentImpl0.register("", "", "", "", "", "");
-            fail("Expecting exception: NoClassDefFoundError");
+        studentImpl0.register("", "", "", "", "", "");
 
-        } catch(NoClassDefFoundError e) {
-            //
-            // main/java/dao/StudentDAO
-            //
-            verifyException("service.impl.StudentImpl", e);
-        }
     }
 
     @Test(timeout = 4000)
     public void test31()  throws Throwable {
+        thrown.expect(NullPointerException.class);
         StudentImpl studentImpl0 = new StudentImpl();
         // Undeclared exception!
-        try {
-            studentImpl0.login("", "");
-            fail("Expecting exception: NoClassDefFoundError");
+        studentImpl0.login("", "");
 
-        } catch (NoClassDefFoundError e) {
-            //
-            // main/java/dao/StudentDAO
-            //
-            verifyException("service.impl.StudentImpl", e);
-        }
     }
 
 }
