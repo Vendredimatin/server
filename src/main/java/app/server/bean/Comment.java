@@ -16,6 +16,7 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int ID;
+    private String courseId;
     private String commenter;
     private String comment;
     private Date time;
