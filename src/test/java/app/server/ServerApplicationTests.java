@@ -23,16 +23,16 @@ public class ServerApplicationTests {
     @Test(timeout = 4000)
     public void test0()  throws Throwable  {
         Collect collect0 = new Collect();
-        collect0.setID(1);
-        int int0 = collect0.getID();
+        collect0.setId(1);
+        int int0 = collect0.getId();
         assertEquals(1, int0);
     }
 
     @Test(timeout = 4000)
     public void test1()  throws Throwable  {
         Collect collect0 = new Collect();
-        collect0.setID((-1));
-        int int0 = collect0.getID();
+        collect0.setId((-1));
+        int int0 = collect0.getId();
         assertEquals((-1), int0);
     }
 
@@ -63,7 +63,7 @@ public class ServerApplicationTests {
     @Test(timeout = 4000)
     public void test5()  throws Throwable  {
         Collect collect0 = new Collect();
-        int int0 = collect0.getID();
+        int int0 = collect0.getId();
         assertEquals(0, int0);
     }
 

@@ -82,7 +82,7 @@ public class PtoV_test {
         Instant instant0 = Instant.EPOCH;
         Date date0 = Date.from(instant0);
         comment0.setTime(date0);
-        comment0.setID(1);
+        comment0.setId(1);
         CommentVO commentVO0 = ptoV0.getCommentVO(comment0);
         assertEquals("1970-01-01 08:00:00", commentVO0.getTime());
     }
@@ -94,7 +94,7 @@ public class PtoV_test {
         Instant instant0 = Instant.now();
         Date date0 = Date.from(instant0);
         comment0.setTime(date0);
-        comment0.setID((-1));
+        comment0.setId((-1));
         CommentVO commentVO0 = ptoV0.getCommentVO(comment0);
         assertNull(commentVO0.getAnswerTo());
     }

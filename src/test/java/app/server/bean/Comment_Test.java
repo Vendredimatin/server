@@ -119,16 +119,16 @@ public class Comment_Test {
     @Test(timeout = 4000)
     public void test12()  throws Throwable  {
         Comment comment0 = new Comment();
-        comment0.setID(1);
-        int int0 = comment0.getID();
+        comment0.setId(1);
+        int int0 = comment0.getId();
         assertEquals(1, int0);
     }
 
     @Test(timeout = 4000)
     public void test13()  throws Throwable  {
         Comment comment0 = new Comment();
-        comment0.setID((-1));
-        int int0 = comment0.getID();
+        comment0.setId((-1));
+        int int0 = comment0.getId();
         assertEquals((-1), int0);
     }
 
@@ -285,7 +285,7 @@ public class Comment_Test {
     @Test(timeout = 4000)
     public void test34()  throws Throwable  {
         Comment comment0 = new Comment();
-        int int0 = comment0.getID();
+        int int0 = comment0.getId();
         assertEquals(0, int0);
     }
 }

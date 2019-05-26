@@ -36,16 +36,16 @@ public class Like_test {
     @Test(timeout = 4000)
     public void test2()  throws Throwable  {
         Like like0 = new Like();
-        like0.setID(1);
-        int int0 = like0.getID();
+        like0.setId(1);
+        int int0 = like0.getId();
         assertEquals(1, int0);
     }
 
     @Test(timeout = 4000)
     public void test3()  throws Throwable  {
         Like like0 = new Like();
-        like0.setID((-1));
-        int int0 = like0.getID();
+        like0.setId((-1));
+        int int0 = like0.getId();
         assertEquals((-1), int0);
     }
 
@@ -75,7 +75,7 @@ public class Like_test {
     @Test(timeout = 4000)
     public void test7()  throws Throwable  {
         Like like0 = new Like();
-        int int0 = like0.getID();
+        int int0 = like0.getId();
         assertEquals(0, int0);
     }
 

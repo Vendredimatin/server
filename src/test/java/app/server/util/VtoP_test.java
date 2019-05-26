@@ -69,7 +69,7 @@ public class VtoP_test {
         commentVO0.setLikes(1);
         arrayList0.add(integer0);
         Comment comment0 = vtoP0.getComment(commentVO0);
-        assertEquals(0, comment0.getID());
+        assertEquals(0, comment0.getId());
     }
 
     @Test(timeout = 4000)
@@ -85,7 +85,7 @@ public class VtoP_test {
         commentVO0.setLikes((-1));
         arrayList0.add(integer0);
         Comment comment0 = vtoP0.getComment(commentVO0);
-        assertEquals(0, comment0.getID());
+        assertEquals(0, comment0.getId());
     }
 
     @Test(timeout = 4000)

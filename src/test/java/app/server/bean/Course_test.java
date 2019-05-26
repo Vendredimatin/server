@@ -125,8 +125,8 @@ public class Course_test {
     @Test(timeout = 4000)
     public void test13()  throws Throwable  {
         Course course0 = new Course();
-        course0.setID("V");
-        course0.getID();
+        course0.setId("V");
+        course0.getId();
         assertFalse(course0.isAnonymous());
     }
 
@@ -158,7 +158,7 @@ public class Course_test {
     @Test(timeout = 4000)
     public void test17()  throws Throwable  {
         Course course0 = new Course();
-        course0.getID();
+        course0.getId();
         assertFalse(course0.isAnonymous());
     }
 
@@ -204,8 +204,8 @@ public class Course_test {
     @Test(timeout = 4000)
     public void test23()  throws Throwable  {
         Course course0 = new Course();
-        course0.setID("");
-        course0.getID();
+        course0.setId("");
+        course0.getId();
         assertFalse(course0.isAnonymous());
     }
 
