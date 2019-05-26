@@ -18,7 +18,7 @@ public class LoggerUtil {
         try {
             setLogingProperties(logger);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.WARNING, String.valueOf(e));
         }
     }
     /**
