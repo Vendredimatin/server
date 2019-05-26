@@ -8,12 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-/**
- * @Author：Liu hanyi
- * @Description：
- * @Date Created in ${Time} ${Date}
- * @Modified By:
- */
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class StudentImpl_test {
@@ -21,7 +16,7 @@ public class StudentImpl_test {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test(timeout = 4000)
-    public void test01()  throws Throwable  {
+    public void test01() {
         thrown.expect(NullPointerException.class);
         StudentImpl studentImpl0 = new StudentImpl();
         // Undeclared exception!
@@ -30,7 +25,7 @@ public class StudentImpl_test {
     }
 
     @Test(timeout = 4000)
-    public void test11()  throws Throwable  {
+    public void test11() {
         thrown.expect(NullPointerException.class);
         StudentImpl studentImpl0 = new StudentImpl();
         // Undeclared exception!
@@ -39,7 +34,7 @@ public class StudentImpl_test {
     }
 
     @Test(timeout = 4000)
-    public void test21()  throws Throwable  {
+    public void test21() {
         thrown.expect(NullPointerException.class);
         StudentImpl studentImpl0 = new StudentImpl();
         // Undeclared exception!
@@ -48,7 +43,7 @@ public class StudentImpl_test {
     }
 
     @Test(timeout = 4000)
-    public void test31()  throws Throwable {
+    public void test31() {
         thrown.expect(NullPointerException.class);
         StudentImpl studentImpl0 = new StudentImpl();
         // Undeclared exception!

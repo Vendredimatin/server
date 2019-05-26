@@ -24,7 +24,7 @@ public class LoggerUtil_test {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test(timeout = 4000)
-    public void test0()  throws Throwable  {
+    public void test0() {
         LoggerUtil loggerUtil0 = LoggerUtil.loggerUtil;
         loggerUtil0.logErr("");
     }

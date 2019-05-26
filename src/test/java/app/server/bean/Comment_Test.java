@@ -10,18 +10,12 @@ import java.util.Date;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-/**
- * @Author：Liu hanyi
- * @Description：
- * @Date Created in ${Time} ${Date}
- * @Modified By:
- */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class Comment_Test {
 
     @Test(timeout = 4000)
-    public void test00()  throws Throwable  {
+    public void test00() {
         Comment comment0 = new Comment();
         comment0.setScore5(1);
         int int0 = comment0.getScore5();
@@ -29,7 +23,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test01()  throws Throwable  {
+    public void test01() {
         Comment comment0 = new Comment();
         comment0.setScore5((-1));
         int int0 = comment0.getScore5();
@@ -37,7 +31,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test02()  throws Throwable  {
+    public void test02() {
         Comment comment0 = new Comment();
         comment0.setScore4(1);
         int int0 = comment0.getScore4();
@@ -45,7 +39,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test03()  throws Throwable  {
+    public void test03() {
         Comment comment0 = new Comment();
         comment0.setScore4((-1));
         int int0 = comment0.getScore4();
@@ -53,7 +47,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test04()  throws Throwable  {
+    public void test04() {
         Comment comment0 = new Comment();
         comment0.setScore3(1);
         int int0 = comment0.getScore3();
@@ -61,7 +55,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test05()  throws Throwable  {
+    public void test05() {
         Comment comment0 = new Comment();
         comment0.setScore3((-1));
         int int0 = comment0.getScore3();
@@ -69,7 +63,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test06()  throws Throwable  {
+    public void test06() {
         Comment comment0 = new Comment();
         comment0.setScore2(1);
         int int0 = comment0.getScore2();
@@ -77,7 +71,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test07()  throws Throwable  {
+    public void test07() {
         Comment comment0 = new Comment();
         comment0.setScore2((-1));
         int int0 = comment0.getScore2();
@@ -85,7 +79,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test08()  throws Throwable  {
+    public void test08() {
         Comment comment0 = new Comment();
         comment0.setScore1(1);
         int int0 = comment0.getScore1();
@@ -93,7 +87,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test09()  throws Throwable  {
+    public void test09() {
         Comment comment0 = new Comment();
         comment0.setScore1((-1));
         int int0 = comment0.getScore1();
@@ -101,7 +95,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test10()  throws Throwable  {
+    public void test10() {
         Comment comment0 = new Comment();
         comment0.setLikes(1);
         int int0 = comment0.getLikes();
@@ -109,7 +103,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test11()  throws Throwable  {
+    public void test11() {
         Comment comment0 = new Comment();
         comment0.setLikes((-1));
         int int0 = comment0.getLikes();
@@ -117,7 +111,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test12()  throws Throwable  {
+    public void test12() {
         Comment comment0 = new Comment();
         comment0.setId(1);
         int int0 = comment0.getId();
@@ -125,7 +119,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test13()  throws Throwable  {
+    public void test13() {
         Comment comment0 = new Comment();
         comment0.setId((-1));
         int int0 = comment0.getId();
@@ -133,7 +127,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test14()  throws Throwable  {
+    public void test14() {
         Comment comment0 = new Comment();
         comment0.setCourseId("1");
         String string0 = comment0.getCourseId();
@@ -141,7 +135,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test15()  throws Throwable  {
+    public void test15() {
         Comment comment0 = new Comment();
         comment0.setCourseId("");
         String string0 = comment0.getCourseId();
@@ -149,7 +143,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test16()  throws Throwable  {
+    public void test16() {
         Comment comment0 = new Comment();
         comment0.setCommenter("u");
         String string0 = comment0.getCommenter();
@@ -157,7 +151,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test17()  throws Throwable  {
+    public void test17() {
         Comment comment0 = new Comment();
         comment0.setComment("6");
         String string0 = comment0.getComment();
@@ -165,7 +159,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test18()  throws Throwable  {
+    public void test18() {
         Comment comment0 = new Comment();
         comment0.setAnswerTo("N");
         String string0 = comment0.getAnswerTo();
@@ -173,7 +167,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test19()  throws Throwable  {
+    public void test19() {
         Comment comment0 = new Comment();
         comment0.setAnswerTo("");
         String string0 = comment0.getAnswerTo();
@@ -181,63 +175,63 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test20()  throws Throwable  {
+    public void test20() {
         Comment comment0 = new Comment();
         int int0 = comment0.getLikes();
         assertEquals(0, int0);
     }
 
     @Test(timeout = 4000)
-    public void test21()  throws Throwable  {
+    public void test21() {
         Comment comment0 = new Comment();
         int int0 = comment0.getScore1();
         assertEquals(0, int0);
     }
 
     @Test(timeout = 4000)
-    public void test22()  throws Throwable  {
+    public void test22() {
         Comment comment0 = new Comment();
         String string0 = comment0.getComment();
         assertNull(string0);
     }
 
     @Test(timeout = 4000)
-    public void test23()  throws Throwable  {
+    public void test23() {
         Comment comment0 = new Comment();
         String string0 = comment0.getAnswerTo();
         assertNull(string0);
     }
 
     @Test(timeout = 4000)
-    public void test24()  throws Throwable  {
+    public void test24() {
         Comment comment0 = new Comment();
         int int0 = comment0.getScore5();
         assertEquals(0, int0);
     }
 
     @Test(timeout = 4000)
-    public void test25()  throws Throwable  {
+    public void test25() {
         Comment comment0 = new Comment();
         int int0 = comment0.getScore3();
         assertEquals(0, int0);
     }
 
     @Test(timeout = 4000)
-    public void test26()  throws Throwable  {
+    public void test26() {
         Comment comment0 = new Comment();
         String string0 = comment0.getCourseId();
         assertNull(string0);
     }
 
     @Test(timeout = 4000)
-    public void test27()  throws Throwable  {
+    public void test27() {
         Comment comment0 = new Comment();
         int int0 = comment0.getScore2();
         assertEquals(0, int0);
     }
 
     @Test(timeout = 4000)
-    public void test28()  throws Throwable  {
+    public void test28() {
         Comment comment0 = new Comment();
         comment0.setCommenter("");
         String string0 = comment0.getCommenter();
@@ -245,7 +239,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test29()  throws Throwable  {
+    public void test29() {
         Comment comment0 = new Comment();
         Date date0 = new Date(0L);
         comment0.setTime(date0);
@@ -254,14 +248,14 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test30()  throws Throwable  {
+    public void test30() {
         Comment comment0 = new Comment();
         String string0 = comment0.getCommenter();
         assertNull(string0);
     }
 
     @Test(timeout = 4000)
-    public void test31()  throws Throwable  {
+    public void test31() {
         Comment comment0 = new Comment();
         comment0.setComment("");
         String string0 = comment0.getComment();
@@ -269,21 +263,21 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test32()  throws Throwable  {
+    public void test32() {
         Comment comment0 = new Comment();
         Date date0 = comment0.getTime();
         assertNull(date0);
     }
 
     @Test(timeout = 4000)
-    public void test33()  throws Throwable  {
+    public void test33() {
         Comment comment0 = new Comment();
         int int0 = comment0.getScore4();
         assertEquals(0, int0);
     }
 
     @Test(timeout = 4000)
-    public void test34()  throws Throwable  {
+    public void test34() {
         Comment comment0 = new Comment();
         int int0 = comment0.getId();
         assertEquals(0, int0);

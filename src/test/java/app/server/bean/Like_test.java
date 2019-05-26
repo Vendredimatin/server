@@ -8,17 +8,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-/**
- * @Author：Liu hanyi
- * @Description：
- * @Date Created in ${Time} ${Date}
- * @Modified By:
- */
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class Like_test {
     @Test(timeout = 4000)
-    public void test0()  throws Throwable  {
+    public void test0() {
         Like like0 = new Like();
         like0.setUsername("5");
         String string0 = like0.getUsername();
@@ -26,7 +21,7 @@ public class Like_test {
     }
 
     @Test(timeout = 4000)
-    public void test1()  throws Throwable  {
+    public void test1() {
         Like like0 = new Like();
         like0.setUsername("");
         String string0 = like0.getUsername();
@@ -34,7 +29,7 @@ public class Like_test {
     }
 
     @Test(timeout = 4000)
-    public void test2()  throws Throwable  {
+    public void test2() {
         Like like0 = new Like();
         like0.setId(1);
         int int0 = like0.getId();
@@ -42,7 +37,7 @@ public class Like_test {
     }
 
     @Test(timeout = 4000)
-    public void test3()  throws Throwable  {
+    public void test3() {
         Like like0 = new Like();
         like0.setId((-1));
         int int0 = like0.getId();
@@ -50,7 +45,7 @@ public class Like_test {
     }
 
     @Test(timeout = 4000)
-    public void test4()  throws Throwable  {
+    public void test4() {
         Like like0 = new Like();
         like0.setCommentId(1);
         int int0 = like0.getCommentId();
@@ -58,7 +53,7 @@ public class Like_test {
     }
 
     @Test(timeout = 4000)
-    public void test5()  throws Throwable  {
+    public void test5() {
         Like like0 = new Like();
         like0.setCommentId((-1));
         int int0 = like0.getCommentId();
@@ -66,21 +61,21 @@ public class Like_test {
     }
 
     @Test(timeout = 4000)
-    public void test6()  throws Throwable  {
+    public void test6() {
         Like like0 = new Like();
         int int0 = like0.getCommentId();
         assertEquals(0, int0);
     }
 
     @Test(timeout = 4000)
-    public void test7()  throws Throwable  {
+    public void test7() {
         Like like0 = new Like();
         int int0 = like0.getId();
         assertEquals(0, int0);
     }
 
     @Test(timeout = 4000)
-    public void test8()  throws Throwable  {
+    public void test8() {
         Like like0 = new Like();
         String string0 = like0.getUsername();
         assertNull(string0);

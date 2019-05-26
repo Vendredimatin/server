@@ -8,18 +8,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-/**
- * @Author：Liu hanyi
- * @Description：
- * @Date Created in ${Time} ${Date}
- * @Modified By:
- */
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class Student_test {
 
     @Test(timeout = 4000)
-    public void test00()  throws Throwable  {
+    public void test00() {
         Student student0 = new Student("", "", "", "", "", "");
         student0.setUsername("U");
         String string0 = student0.getUsername();
@@ -27,7 +22,7 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test01()  throws Throwable  {
+    public void test01() {
         Student student0 = new Student("", "", "", "", "", "");
         student0.setStudentNumber("N");
         String string0 = student0.getStudentNumber();
@@ -35,7 +30,7 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test02()  throws Throwable  {
+    public void test02() {
         Student student0 = new Student("", "", "", "", "", "");
         student0.setSchool("H");
         String string0 = student0.getSchool();
@@ -43,7 +38,7 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test03()  throws Throwable  {
+    public void test03() {
         Student student0 = new Student("", "", "", "", "", "");
         student0.setPassword("z");
         String string0 = student0.getPassword();
@@ -51,7 +46,7 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test04()  throws Throwable  {
+    public void test04() {
         Student student0 = new Student("", "", "", "", "", "");
         student0.setPassword("");
         String string0 = student0.getPassword();
@@ -59,7 +54,7 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test05()  throws Throwable  {
+    public void test05() {
         Student student0 = new Student("", "", "", "", "", "");
         student0.setMajor("U");
         String string0 = student0.getMajor();
@@ -67,7 +62,7 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test06()  throws Throwable  {
+    public void test06() {
         Student student0 = new Student("", "", "", "", "", "");
         student0.setCollege("E");
         String string0 = student0.getCollege();
@@ -75,7 +70,7 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test07()  throws Throwable  {
+    public void test07() {
         Student student0 = new Student("", "", "", "", "", "");
         student0.setCollege("");
         String string0 = student0.getCollege();
@@ -83,7 +78,7 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test08()  throws Throwable  {
+    public void test08() {
         Student student0 = new Student("", "", "", "", "", "");
         student0.setMajor("");
         String string0 = student0.getMajor();
@@ -91,14 +86,14 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test09()  throws Throwable  {
+    public void test09() {
         Student student0 = new Student("", "", "", "", "", "");
         String string0 = student0.getUsername();
         assertNull(string0);
     }
 
     @Test(timeout = 4000)
-    public void test10()  throws Throwable  {
+    public void test10() {
         Student student0 = new Student("", "", "", "", "", "");
         student0.setSchool("");
         String string0 = student0.getSchool();
@@ -106,14 +101,14 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test11()  throws Throwable  {
+    public void test11() {
         Student student0 = new Student("", "", "", "", "", "");
         String string0 = student0.getStudentNumber();
         assertNull(string0);
     }
 
     @Test(timeout = 4000)
-    public void test12()  throws Throwable  {
+    public void test12() {
         Student student0 = new Student("", "", "", "", "", "");
         student0.setStudentNumber("");
         String string0 = student0.getStudentNumber();
@@ -121,7 +116,7 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test13()  throws Throwable  {
+    public void test13() {
         Student student0 = new Student("", "", "", "", "", "");
         student0.setUsername("");
         String string0 = student0.getUsername();
@@ -129,28 +124,28 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test14()  throws Throwable  {
+    public void test14() {
         Student student0 = new Student("", "", "", "", "", "");
         String string0 = student0.getPassword();
         assertNull(string0);
     }
 
     @Test(timeout = 4000)
-    public void test15()  throws Throwable  {
+    public void test15() {
         Student student0 = new Student("", "", "", "", "", "");
         String string0 = student0.getCollege();
         assertNull(string0);
     }
 
     @Test(timeout = 4000)
-    public void test16()  throws Throwable  {
+    public void test16() {
         Student student0 = new Student("", "", "", "", "", "");
         String string0 = student0.getMajor();
         assertNull(string0);
     }
 
     @Test(timeout = 4000)
-    public void test17()  throws Throwable  {
+    public void test17() {
         Student student0 = new Student("", "", "", "", "", (String) null);
         String string0 = student0.getSchool();
         assertNull(string0);

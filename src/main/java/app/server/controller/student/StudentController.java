@@ -34,27 +34,6 @@ public class StudentController {
 
     @PostMapping(value = "/register")//String username,String password,String admin,String college,String major,String studentNumber
     public String register(@RequestBody StudentVO student){
-        String school = student.getSchool();
-        StringBuffer sb = new StringBuffer(school);
-        String iso8859 = null;
-        String gbk = null;
-        String utf8 = null;
-        try {
-            iso8859 = new String(sb.toString().getBytes("iso8859-1"));
-            gbk = new String(sb.toString().getBytes("gbk"));
-            utf8 = new String(sb.toString().getBytes("utf-8"));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-        if(iso8859.equals(sb.toString())){
-            System.out.println("iso8859");
-        }else  if(gbk.equals(sb.toString())){
-            System.out.println("gbk");
-        }else  if(utf8.equals(sb.toString())){
-            System.out.println("utf8");
-        }
-
         LoggerUtil.loggerUtil.logInfo("register");
         LoggerUtil.loggerUtil.logInfo(student.getUsername());
         LoggerUtil.loggerUtil.logInfo(student.getPassword());
