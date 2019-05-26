@@ -50,7 +50,7 @@ public class CommentImpl implements CommentService {
                 for (Comment comment : comments) {
                     if (anonymous) comment.setCommenter("匿名用户");
                     CommentVO commentVO = PtoV.ptoV.getCommentVO(comment);
-                    if (cids.contains(comment.getID())) commentVO.setLike(true);
+                    if (cids.contains(comment.getId())) commentVO.setLike(true);
                     res.add(commentVO);
                 }
                 return res;
