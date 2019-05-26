@@ -1,4 +1,4 @@
-package app.server;
+package app.server.config;
 
 import org.hibernate.dialect.MySQL57InnoDBDialect;
 import org.hibernate.dialect.MySQLInnoDBDialect;
