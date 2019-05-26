@@ -15,7 +15,7 @@ import java.util.Date;
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int iD;
+    private int ID;
     private String answerTo = null;//回复的commentId
     private String courseId;
     private String commenter;
