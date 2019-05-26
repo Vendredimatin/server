@@ -2,6 +2,8 @@ package app.server.service.impl;
 
 import app.server.bean.Collect;
 import app.server.bean.Course;
+import app.server.bean.RatingDetails;
+import app.server.constants.Constants;
 import app.server.dao.CollectDAO;
 import app.server.dao.CourseDAO;
 import app.server.service.CourseService;
@@ -14,12 +16,11 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+import static app.server.constants.Constants.FAIL;
+import static app.server.constants.Constants.SUC;
+
 @Service
 public class CourseImpl implements CourseService {
-    
-    private static final String SUC = "SUCCESS";
-    private static final String FAIL = "FAILURE";
-
     private CourseDAO courseDAO;
     private CollectDAO collectDAO;
     public CourseImpl(){}
@@ -100,6 +101,7 @@ public class CourseImpl implements CourseService {
         course.setId(id);
         course.setName(name);
         course.setTeacherName(teacherName);
+        course.setRatingDetails(new RatingDetails());
         courseDAO.save(course);
         return SUC;
     }

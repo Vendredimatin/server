@@ -6,13 +6,13 @@ import app.server.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import static app.server.constants.Constants.FAIL;
+import static app.server.constants.Constants.SUC;
+
 
 @Service
 public class StudentImpl implements StudentService {
 
-
-    private static final String SUC = "SUCCESS";
-    private static final String FAIL = "FAILURE";
     private StudentDAO studentDAO;
     public StudentImpl(){}
     @Autowired

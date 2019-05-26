@@ -7,11 +7,14 @@ package app.server.bean;
  * @Modified By:
  */
 public class RatingDetails {
-    private int score1;
-    private int score2;
-    private int score3;
-    private int score4;
-    private int score5;
+    private int score1 = 0;
+    private int score2 = 0;
+    private int score3 = 0;
+    private int score4 = 0;
+    private int score5 = 0;
+
+    public RatingDetails() {
+    }
 
     public RatingDetails(int score1, int score2, int score3, int score4, int score5) {
         this.score1 = score1;

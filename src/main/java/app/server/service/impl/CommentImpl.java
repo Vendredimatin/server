@@ -17,12 +17,12 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+import static app.server.constants.Constants.FAIL;
+import static app.server.constants.Constants.SUC;
+
 @Service
 public class CommentImpl implements CommentService {
 
-
-    private static final String SUC = "SUCCESS";
-    private static final String FAIL = "FAILURE";
     private CommentDAO commentDAO;
     private CourseDAO courseDAO;
     private LikeDAO likeDAO;
