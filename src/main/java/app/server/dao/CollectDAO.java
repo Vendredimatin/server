@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface CollectDAO extends JpaRepository<Collect,Integer> {
     boolean existsByCourseIdAndUsername(String courseId,String username);
+    boolean existsByUsername(String username);
     void deleteByCourseIdAndUsername(String courseId,String username);
     List<Collect> findAllByUsername(String username);
 }
