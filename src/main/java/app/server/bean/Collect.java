@@ -15,7 +15,7 @@ public class Collect {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int ID;
+    private int iD;
     private String username;
     private String courseId;
 }

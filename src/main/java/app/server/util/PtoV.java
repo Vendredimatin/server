@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PtoV {
-    public static PtoV ptoV = new PtoV();
-    SimpleDateFormat dateFormat_min=new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");//设置当前时间的格式，为年-月-日 时-分-秒
+    public static final PtoV ptoV = new PtoV();
+    private SimpleDateFormat dateFormatMin=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置当前时间的格式，为年-月-日 时-分-秒
     private PtoV(){}
     public CommentVO getCommentVO(Comment po){
         CommentVO commentVO = new CommentVO();
@@ -20,8 +20,8 @@ public class PtoV {
         commentVO.setLikes(po.getLikes());
         commentVO.setCommenter(po.getCommenter());
         commentVO.setCourseId(po.getCourseId());
-        commentVO.setReplyComment(po.getReplyComment());
-        commentVO.setTime(dateFormat_min.format(po.getTime()));
+        commentVO.setAnswerTo(po.getAnswerTo());
+        commentVO.setTime(dateFormatMin.format(po.getTime()));
         List<Integer> scores = new ArrayList<>(5);
         scores.add(po.getScore1());
         scores.add(po.getScore2());

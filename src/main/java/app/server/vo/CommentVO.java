@@ -11,8 +11,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CommentVO {
-    private int ID;
-    private String replyComment;
+    private int iD;
+    private String answerTo;
     private String courseId;
     private String commenter;
     private String comment;
