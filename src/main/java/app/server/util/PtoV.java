@@ -15,7 +15,7 @@ public class PtoV {
     private PtoV(){}
     public CommentVO getCommentVO(Comment po){
         CommentVO commentVO = new CommentVO();
-        commentVO.setComment(po.getCommentInfo());
+        commentVO.setContent(po.getCommentInfo());
         commentVO.setId(po.getId());
         commentVO.setLikes(po.getLikes());
         commentVO.setCommenter(po.getCommenter());

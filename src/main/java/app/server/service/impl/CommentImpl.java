@@ -38,7 +38,6 @@ public class CommentImpl implements CommentService {
     @Override
     public List<CommentVO> getCourseComment(String courseId,String username) {
         if(courseId!=null&&commentDAO.existsByCourseId(courseId)&&courseDAO.existsById(courseId)) {
-
                 Course course = courseDAO.findById(courseId).get();
                 boolean anonymous = course.isAnonymous();
                 List<Comment> comments = commentDAO.findAllByCourseId(courseId);
@@ -66,6 +65,7 @@ public class CommentImpl implements CommentService {
         Comment comment = VtoP.vtoP.getComment(commentVO);
         try {
             commentDAO.save(comment);
+            LoggerUtil.loggerUtil.logInfo("Comment Success");
         }catch (Exception e){
             LoggerUtil.loggerUtil.logErr(e.getMessage());
             return FAIL;
