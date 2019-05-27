@@ -22,7 +22,7 @@ class CosinCalUtil {
         for(int i = 0;i<a.size();i++){
             double aTemp = a.get(i);
             double bTemp = b.get(i);
-            if(aTemp==-1&&bTemp!=-1){
+            if(aTemp!=0&&bTemp!=0){
                 validVector1.add(aTemp);
                 validVector2.add(bTemp);
             }
