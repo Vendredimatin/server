@@ -20,39 +20,39 @@ public class Student_test {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test(timeout = 4000)
-    public void test00()  throws Throwable  {
-        Student student0 = new Student("", "", (String) null, "", "", "");
+    public void test00() {
+        Student student0 = new Student("", "", null, "", "", "");
         student0.setUsername("0");
         String string0 = student0.getUsername();
         assertEquals("0", string0);
     }
 
     @Test(timeout = 4000)
-    public void test01()  throws Throwable  {
-        Student student0 = new Student("", "", "", (String) null, (String) null, "");
+    public void test01() {
+        Student student0 = new Student("", "", "", null, null, "");
         student0.setUsername("");
         String string0 = student0.getUsername();
         assertEquals("", string0);
     }
 
     @Test(timeout = 4000)
-    public void test02()  throws Throwable  {
-        Student student0 = new Student((String) null, "", "", "", (String) null, (String) null);
+    public void test02() {
+        Student student0 = new Student(null, "", "", "", (String) null, null);
         student0.setStudentNumber("1");
         String string0 = student0.getStudentNumber();
         assertEquals("1", string0);
     }
 
     @Test(timeout = 4000)
-    public void test03()  throws Throwable  {
-        Student student0 = new Student("", "", (String) null, "", "", "");
+    public void test03() {
+        Student student0 = new Student("", "", null, "", "", "");
         student0.setSchool("T");
         String string0 = student0.getSchool();
         assertEquals("T", string0);
     }
 
     @Test(timeout = 4000)
-    public void test04()  throws Throwable  {
+    public void test04() {
         Student student0 = new Student("", "", "", "", "", "");
         student0.setPassword("&");
         String string0 = student0.getPassword();
@@ -60,15 +60,15 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test05()  throws Throwable  {
-        Student student0 = new Student("", "", (String) null, "", "", "");
+    public void test05() {
+        Student student0 = new Student("", "", null, "", "", "");
         student0.setMajor("O");
         String string0 = student0.getMajor();
         assertEquals("O", string0);
     }
 
     @Test(timeout = 4000)
-    public void test06()  throws Throwable  {
+    public void test06() {
         Student student0 = new Student("", "", "", "", "", "");
         student0.setMajor("");
         String string0 = student0.getMajor();
@@ -76,30 +76,30 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test07()  throws Throwable  {
-        Student student0 = new Student("", "", "", (String) null, (String) null, "");
+    public void test07() {
+        Student student0 = new Student("", "", "", null, null, "");
         student0.setCollege("F");
         String string0 = student0.getCollege();
         assertEquals("F", string0);
     }
 
     @Test(timeout = 4000)
-    public void test08()  throws Throwable  {
-        Student student0 = new Student("", "", (String) null, "", "", "");
+    public void test08() {
+        Student student0 = new Student("", "", null, "", "", "");
         String string0 = student0.getStudentNumber();
         assertNull(string0);
     }
 
     @Test(timeout = 4000)
-    public void test09()  throws Throwable  {
-        Student student0 = new Student("", "", (String) null, "", "", "");
+    public void test09() {
+        Student student0 = new Student("", "", null, "", "", "");
         String string0 = student0.getMajor();
         assertNull(string0);
     }
 
     @Test(timeout = 4000)
-    public void test10()  throws Throwable  {
-        Student student0 = new Student("", "", "", (String) null, (String) null, "");
+    public void test10() {
+        Student student0 = new Student("", "", "", null, null, "");
         String string0 = student0.getUsername();
         assertNull(string0);
     }
@@ -113,45 +113,45 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test12()  throws Throwable  {
-        Student student0 = new Student("", "", "", (String) null, (String) null, "");
+    public void test12() {
+        Student student0 = new Student("", "", "", null, null, "");
         String string0 = student0.getSchool();
         assertNull(string0);
     }
 
     @Test(timeout = 4000)
-    public void test13()  throws Throwable  {
-        Student student0 = new Student("", "", "", (String) null, (String) null, "");
+    public void test13() {
+        Student student0 = new Student("", "", "", null, null, "");
         student0.setStudentNumber("");
         String string0 = student0.getStudentNumber();
         assertEquals("", string0);
     }
 
     @Test(timeout = 4000)
-    public void test14()  throws Throwable  {
-        Student student0 = new Student("", "", (String) null, "", "", "");
+    public void test14() {
+        Student student0 = new Student("", "", null, "", "", "");
         student0.setPassword("");
         String string0 = student0.getPassword();
         assertEquals("", string0);
     }
 
     @Test(timeout = 4000)
-    public void test15()  throws Throwable  {
-        Student student0 = new Student("", "", (String) null, "", "", "");
+    public void test15() {
+        Student student0 = new Student("", "", null, "", "", "");
         student0.setCollege("");
         String string0 = student0.getCollege();
         assertEquals("", string0);
     }
 
     @Test(timeout = 4000)
-    public void test16()  throws Throwable  {
-        Student student0 = new Student("", "", (String) null, "", "", "");
+    public void test16() {
+        Student student0 = new Student("", "", null, "", "", "");
         String string0 = student0.getCollege();
         assertNull(string0);
     }
 
     @Test(timeout = 4000)
-    public void test17()  throws Throwable  {
+    public void test17() {
         Student student0 = new Student("", "", "", "", "", "");
         String string0 = student0.getPassword();
         assertNull(string0);

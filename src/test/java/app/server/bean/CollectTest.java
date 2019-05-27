@@ -19,7 +19,7 @@ import static org.junit.Assert.assertNull;
 public class CollectTest {
 
     @Test(timeout = 4000)
-    public void test0()  throws Throwable  {
+    public void test0() {
         Collect collect0 = new Collect();
         collect0.setUsername("H");
         String string0 = collect0.getUsername();
@@ -27,7 +27,7 @@ public class CollectTest {
     }
 
     @Test(timeout = 4000)
-    public void test1()  throws Throwable  {
+    public void test1() {
         Collect collect0 = new Collect();
         collect0.setId(1);
         int int0 = collect0.getId();
@@ -35,7 +35,7 @@ public class CollectTest {
     }
 
     @Test(timeout = 4000)
-    public void test2()  throws Throwable  {
+    public void test2() {
         Collect collect0 = new Collect();
         collect0.setId((-1));
         int int0 = collect0.getId();
@@ -43,7 +43,7 @@ public class CollectTest {
     }
 
     @Test(timeout = 4000)
-    public void test3()  throws Throwable  {
+    public void test3() {
         Collect collect0 = new Collect();
         collect0.setCourseId("m");
         String string0 = collect0.getCourseId();
@@ -51,14 +51,14 @@ public class CollectTest {
     }
 
     @Test(timeout = 4000)
-    public void test4()  throws Throwable  {
+    public void test4() {
         Collect collect0 = new Collect();
         String string0 = collect0.getUsername();
         assertNull(string0);
     }
 
     @Test(timeout = 4000)
-    public void test5()  throws Throwable  {
+    public void test5() {
         Collect collect0 = new Collect();
         collect0.setCourseId("");
         String string0 = collect0.getCourseId();
@@ -66,21 +66,21 @@ public class CollectTest {
     }
 
     @Test(timeout = 4000)
-    public void test6()  throws Throwable  {
+    public void test6() {
         Collect collect0 = new Collect();
         String string0 = collect0.getCourseId();
         assertNull(string0);
     }
 
     @Test(timeout = 4000)
-    public void test7()  throws Throwable  {
+    public void test7() {
         Collect collect0 = new Collect();
         int int0 = collect0.getId();
         assertEquals(0, int0);
     }
 
     @Test(timeout = 4000)
-    public void test8()  throws Throwable  {
+    public void test8() {
         Collect collect0 = new Collect();
         collect0.setUsername("");
         String string0 = collect0.getUsername();

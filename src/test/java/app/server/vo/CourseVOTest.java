@@ -5,24 +5,22 @@
 
 package app.server.vo;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
-
-import org.evosuite.runtime.EvoRunner;
-import org.evosuite.runtime.EvoRunnerParameters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.ArrayList;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CourseVOTest{
 
   @Test(timeout = 4000)
-  public void test00()  throws Throwable  {
+  public void test00() {
       CourseVO courseVO0 = new CourseVO();
       assertFalse(courseVO0.isAnonymous());
       
@@ -31,7 +29,7 @@ public class CourseVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test01()  throws Throwable  {
+  public void test01() {
       CourseVO courseVO0 = new CourseVO();
       assertFalse(courseVO0.isCollect());
       
@@ -41,7 +39,7 @@ public class CourseVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test02()  throws Throwable  {
+  public void test02() {
       CourseVO courseVO0 = new CourseVO();
       assertFalse(courseVO0.isAnonymous());
       
@@ -51,7 +49,7 @@ public class CourseVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test03()  throws Throwable  {
+  public void test03() {
       CourseVO courseVO0 = new CourseVO();
       courseVO0.setTeacherName("C");
       courseVO0.getTeacherName();
@@ -60,7 +58,7 @@ public class CourseVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test04()  throws Throwable  {
+  public void test04() {
       CourseVO courseVO0 = new CourseVO();
       courseVO0.setTeacherName("");
       courseVO0.getTeacherName();
@@ -69,19 +67,19 @@ public class CourseVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test05()  throws Throwable  {
+  public void test05() {
       CourseVO courseVO0 = new CourseVO();
-      courseVO0.setScoreList((ArrayList<Double>) null);
+      courseVO0.setScoreList(null);
       courseVO0.getScoreList();
       assertFalse(courseVO0.isAnonymous());
       assertFalse(courseVO0.isCollect());
   }
 
   @Test(timeout = 4000)
-  public void test06()  throws Throwable  {
+  public void test06() {
       CourseVO courseVO0 = new CourseVO();
       ArrayList<Double> arrayList0 = courseVO0.getScoreList();
-      Double integer0 = new Double(0);
+      Double integer0 = (double) 0;
       arrayList0.add(integer0);
       courseVO0.getScoreList();
       assertFalse(courseVO0.isAnonymous());
@@ -89,7 +87,7 @@ public class CourseVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test07()  throws Throwable  {
+  public void test07() {
       CourseVO courseVO0 = new CourseVO();
       courseVO0.setName("1");
       courseVO0.getName();
@@ -98,7 +96,7 @@ public class CourseVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test08()  throws Throwable  {
+  public void test08() {
       CourseVO courseVO0 = new CourseVO();
       courseVO0.setName("");
       courseVO0.getName();
@@ -107,7 +105,7 @@ public class CourseVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test09()  throws Throwable  {
+  public void test09() {
       CourseVO courseVO0 = new CourseVO();
       courseVO0.setId("M");
       courseVO0.getId();
@@ -116,7 +114,7 @@ public class CourseVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test10()  throws Throwable  {
+  public void test10() {
       CourseVO courseVO0 = new CourseVO();
       courseVO0.setId("");
       courseVO0.getId();
@@ -125,7 +123,7 @@ public class CourseVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test11()  throws Throwable  {
+  public void test11() {
       CourseVO courseVO0 = new CourseVO();
       courseVO0.getTeacherName();
       assertFalse(courseVO0.isAnonymous());
@@ -133,7 +131,7 @@ public class CourseVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test12()  throws Throwable  {
+  public void test12() {
       CourseVO courseVO0 = new CourseVO();
       boolean boolean0 = courseVO0.isAnonymous();
       assertFalse(boolean0);
@@ -141,7 +139,7 @@ public class CourseVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test13()  throws Throwable  {
+  public void test13() {
       CourseVO courseVO0 = new CourseVO();
       courseVO0.getId();
       assertFalse(courseVO0.isAnonymous());
@@ -149,7 +147,7 @@ public class CourseVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test14()  throws Throwable  {
+  public void test14() {
       CourseVO courseVO0 = new CourseVO();
       boolean boolean0 = courseVO0.isCollect();
       assertFalse(boolean0);
@@ -157,7 +155,7 @@ public class CourseVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test15()  throws Throwable  {
+  public void test15() {
       CourseVO courseVO0 = new CourseVO();
       courseVO0.getName();
       assertFalse(courseVO0.isCollect());

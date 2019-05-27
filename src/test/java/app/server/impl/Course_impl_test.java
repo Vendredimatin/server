@@ -80,7 +80,7 @@ public class Course_impl_test {
     @Test(timeout = 4000)
     public void test06() {
         CourseVO courseVO0 = new CourseVO();
-        courseVO0.setScoreList((ArrayList<Double>) null);
+        courseVO0.setScoreList(null);
         courseVO0.getScoreList();
         assertFalse(courseVO0.isAnonymous());
         assertFalse(courseVO0.isCollect());
@@ -89,8 +89,8 @@ public class Course_impl_test {
     @Test(timeout = 4000)
     public void test07() {
         CourseVO courseVO0 = new CourseVO();
-        ArrayList<Double> arrayList0 = new ArrayList<Double>();
-        Double integer0 = new Double(0);
+        ArrayList<Double> arrayList0 = new ArrayList<>();
+        Double integer0 = (double) 0;
         arrayList0.add(integer0);
         courseVO0.setScoreList(arrayList0);
         courseVO0.getScoreList();

@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * @Author：Liu hanyi
+ * @Author：Liu hanni
  * @Description：
  * @Date Created in ${Time} ${Date}
  * @Modified By:
@@ -21,7 +21,7 @@ public class PubControllerTest {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test(timeout = 4000)
-    public void test0()  throws Throwable  {
+    public void test0() {
         thrown.expect(NullPointerException.class);
         PubController pubController0 = new PubController();
         // Undeclared exception!
@@ -29,7 +29,7 @@ public class PubControllerTest {
     }
 
     @Test(timeout = 4000)
-    public void test1()  throws Throwable  {
+    public void test1() {
         thrown.expect(NullPointerException.class);
         PubController pubController0 = new PubController();
         // Undeclared exception!
@@ -38,7 +38,7 @@ public class PubControllerTest {
     }
 
     @Test(timeout = 4000)
-    public void test2()  throws Throwable  {
+    public void test2() {
         thrown.expect(NullPointerException.class);
         PubController pubController0 = new PubController();
         // Undeclared exception!
