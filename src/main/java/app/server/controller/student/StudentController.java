@@ -43,7 +43,7 @@ public class StudentController {
         return studentService.register(student.getUsername(),student.getPassword(),student.getSchool(),student.getCollege(),student.getMajor(),student.getStudentNumber());
     }
 
-    @PostMapping(value = "getStudentInfo")
+    @GetMapping(value = "getStudentInfo")
     public Student getStudentInfo(String userName){
         return studentService.getStudentInfo(userName);
     }
