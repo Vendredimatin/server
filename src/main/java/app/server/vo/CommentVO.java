@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @NoArgsConstructor
 public class CommentVO {
     private int id;
-    private String answerTo;
+    private int answerTo;
     private String courseId;
     private String commenter;
     private String content;
@@ -28,11 +28,11 @@ public class CommentVO {
         this.id = id;
     }
 
-    public String getAnswerTo() {
+    public int getAnswerTo() {
         return answerTo;
     }
 
-    public void setAnswerTo(String answerTo) {
+    public void setAnswerTo(int answerTo) {
         this.answerTo = answerTo;
     }
 

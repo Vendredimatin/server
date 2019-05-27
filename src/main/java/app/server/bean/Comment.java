@@ -17,7 +17,7 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String answerTo = null;//回复的commentId
+    private int answerTo = -1;//回复的commentId
     private String courseId;
     private String commenter;
     private String commentInfo;
@@ -42,11 +42,11 @@ public class Comment {
         this.id = id;
     }
 
-    public String getAnswerTo() {
+    public int getAnswerTo() {
         return answerTo;
     }
 
-    public void setAnswerTo(String answerTo) {
+    public void setAnswerTo(int answerTo) {
         this.answerTo = answerTo;
     }
 
