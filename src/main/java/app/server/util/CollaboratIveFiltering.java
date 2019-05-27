@@ -149,6 +149,7 @@ public class CollaboratIveFiltering implements CFService {
         Map<String,Double> map = new HashMap<>();
         List<Integer> inds = new ArrayList<>();
         int index = stuIds.indexOf(username);
+        LoggerUtil.loggerUtil.logInfo("recommend username "+username);
         if(index>=0) {
             for (int i = 0; i < courseIds.size(); i++) {
                 if (scores[i][index] == 0) {
