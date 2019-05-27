@@ -64,6 +64,7 @@ public class CommentImpl implements CommentService {
     @Transactional
     @Override
     public String comment(CommentVO commentVO) {
+        System.out.println(commentVO);
         Comment comment = VtoP.vtoP.getComment(commentVO);
         if (comment.getAnswerTo() == -1){
             Course course = courseDAO.getOne(commentVO.getCourseId());
