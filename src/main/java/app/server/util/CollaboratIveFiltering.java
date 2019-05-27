@@ -24,8 +24,8 @@ public class CollaboratIveFiltering implements CFService {
     private ArrayList<String> courseIds = new ArrayList<>();//课程IDs
     private ArrayList<String> stuIds = new ArrayList<>();//学生IDs
     private ArrayList<ArrayList<Double>> scoreVectors = new ArrayList<>();
-    private Double[][] scores;
-    private Double[][] similarity;
+    private double[][] scores;
+    private double[][] similarity;
     private CourseDAO courseDAO;
     private StudentDAO studentDAO;
     private CommentDAO commentDAO;
@@ -48,10 +48,13 @@ public class CollaboratIveFiltering implements CFService {
         for(Student student:studentList){
             stuIds.add(student.getUsername());
         }
-
-        scores = new Double[courseIds.size()][stuIds.size()];
+        System.out.println("Course Num "+courseIds.size());
+        System.out.println("Stu Num "+stuIds.size());
+        scores = new double[courseIds.size()][stuIds.size()];
+        System.out.println(scores[0][0]);
         setScores();
-        similarity = new Double[courseIds.size()][courseIds.size()];
+        similarity = new double[courseIds.size()][courseIds.size()];
+        System.out.println(similarity[0][0]);
         setSimilarity();
     }
     private void setScores(){
@@ -102,7 +105,7 @@ public class CollaboratIveFiltering implements CFService {
     private void fillVectors(){
         for(int i = 0;i<courseIds.size();i++){
             ArrayList<Double> list = new ArrayList<>(scores[i].length);
-            Collections.addAll(list, scores[i]);
+            for(double d:scores[i])list.add(d);
             scoreVectors.add(list);
         }
     }
@@ -126,14 +129,16 @@ public class CollaboratIveFiltering implements CFService {
         Map<String,Double> map = new HashMap<>();
         List<Integer> inds = new ArrayList<>();
         int index = stuIds.indexOf(username);
-        for(int i = 0;i<courseIds.size();i++){
-            if(scores[i][index]==0){
-                inds.add(i);
-                map.put(courseIds.get(i),0.0);
+        if(index>=0) {
+            for (int i = 0; i < courseIds.size(); i++) {
+                if (scores[i][index] == 0) {
+                    inds.add(i);
+                    map.put(courseIds.get(i), 0.0);
+                }
             }
-        }
-        for(int i:inds){
-            map.replace(courseIds.get(i),calPredict(i,index));
+            for (int i : inds) {
+                map.replace(courseIds.get(i), calPredict(i, index));
+            }
         }
         return map;
     }

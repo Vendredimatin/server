@@ -30,9 +30,11 @@ public class LoggerUtil {
         logPath.get().append("/");
         logPath.get().append(fileName);
         File file = new File(logPath.toString());
-        boolean mkRes = false;
-        if (!file.exists()) mkRes = file.mkdir();
-        if(!mkRes)throw new MakeErrException("Make Dir Error");
+        boolean mkRes = true;
+        if (!file.exists()) {
+            mkRes = file.mkdir();
+        }
+        if(!mkRes){throw new MakeErrException("Make Dir Error");}
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         logPath.get().append("/");
         logPath.get().append(sdf.format(new Date()));
