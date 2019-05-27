@@ -27,7 +27,7 @@ import static app.server.constants.Constants.SUC;
 public class CourseImpl implements CourseService {
     private CourseDAO courseDAO;
     private CollectDAO collectDAO;
-    private CFService cfService;
+  //  private CFService cfService;
     public CourseImpl() {
     }
 
@@ -35,7 +35,7 @@ public class CourseImpl implements CourseService {
     public CourseImpl(CourseDAO courseDAO, CollectDAO collectDAO,CFService cfService) {
         this.courseDAO = courseDAO;
         this.collectDAO = collectDAO;
-        this.cfService = cfService;
+   //     this.cfService = cfService;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class CourseImpl implements CourseService {
         List<CourseVO> res = new ArrayList<>();
         List<Collect> collects = collectDAO.findAllByUsername(username);
         List<String> cids = new ArrayList<>();
-        Map<String,Double> map = cfService.getRecommendCourses(username);
+       // Map<String,Double> map = cfService.getRecommendCourses(username);
         for (Collect c : collects) {
             cids.add(c.getCourseId());
         }
@@ -54,9 +54,9 @@ public class CourseImpl implements CourseService {
             CourseVO courseVO = PtoV.ptoV.getCourseVO(course);
             String cid = course.getId();
             if (cids.contains(cid)) courseVO.setCollect(true);
-            else if(map.containsKey(cid)){
+            /*else if(map.containsKey(cid)){
                 courseVO.setRecommend(map.get(cid));
-            }
+            }*/
             res.add(courseVO);
         }
 
