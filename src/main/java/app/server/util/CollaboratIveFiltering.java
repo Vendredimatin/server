@@ -7,13 +7,14 @@ import app.server.bean.Student;
 import app.server.dao.CommentDAO;
 import app.server.dao.CourseDAO;
 import app.server.dao.StudentDAO;
+import app.server.service.CFService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
 
 @Component
-public class CollaboratIveFiltering {
+public class CollaboratIveFiltering implements CFService {
     private static final double WEIGHT1 = 0.3;//权重
     private static final double WEIGHT2 = 0.15;//权重
     private static final double WEIGHT3 = 0.15;//权重
@@ -34,6 +35,7 @@ public class CollaboratIveFiltering {
         this.courseDAO = courseDAO;
         this.studentDAO = studentDAO;
         this.commentDAO = commentDAO;
+        init();
     }
 
     public void init(){
