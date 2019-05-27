@@ -1,7 +1,6 @@
 package app.server;
 
 import app.server.bean.Collect;
-import app.server.service.impl.StudentImpl;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -9,10 +8,8 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.evosuite.runtime.EvoAssertions.verifyException;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -37,7 +34,7 @@ public class ServerApplicationTests {
     }
 
     @Test(timeout = 4000)
-    public void test2()  throws Throwable  {
+    public void test2() {
         Collect collect0 = new Collect();
         collect0.setUsername("y");
         String string0 = collect0.getUsername();

@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
@@ -17,7 +18,7 @@ import static org.junit.Assert.assertFalse;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Course_impl_test {
+public class Course_implTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
@@ -143,7 +144,7 @@ public class Course_impl_test {
     @Test(timeout = 4000)
     public void test13() {
         CourseVO courseVO0 = new CourseVO();
-        ArrayList<Double> arrayList0 = courseVO0.getScoreList();
+        List<Double> arrayList0 = courseVO0.getScoreList();
         courseVO0.setScoreList(arrayList0);
         assertFalse(courseVO0.isCollect());
         assertFalse(courseVO0.isAnonymous());

@@ -105,7 +105,7 @@ public class StudentTest {
     }
 
     @Test(timeout = 4000)
-    public void test11()  throws Throwable  {
+    public void test11() {
         Student student0 = new Student("", "", "", (String) null, (String) null, "");
         student0.setSchool("");
         String string0 = student0.getSchool();

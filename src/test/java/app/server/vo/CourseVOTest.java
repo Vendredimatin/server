@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -78,7 +79,7 @@ public class CourseVOTest{
   @Test(timeout = 4000)
   public void test06() {
       CourseVO courseVO0 = new CourseVO();
-      ArrayList<Double> arrayList0 = courseVO0.getScoreList();
+      List<Double> arrayList0 = courseVO0.getScoreList();
       Double integer0 = (double) 0;
       arrayList0.add(integer0);
       courseVO0.getScoreList();
