@@ -12,6 +12,7 @@ import app.server.util.PtoV;
 import app.server.vo.CourseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,6 +76,7 @@ public class CourseImpl implements CourseService {
         }
     }
 
+    @Transactional
     @Override
     public String cancelCollect(String username, String courseId) {
         if(username!=null&&collectDAO.existsByCourseIdAndUsername(courseId,username)){

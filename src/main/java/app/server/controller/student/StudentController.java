@@ -63,7 +63,7 @@ public class StudentController {
 
         return studentService.updateStudentPassword(student.getUsername(),student.getPassword(),student.getSchool());
     }
-    @RequestMapping(value = "/commnet")
+    @RequestMapping(value = "/comment")
     public String comment(@RequestBody CommentVO commentVO){
         return commentService.comment(commentVO);
     }
