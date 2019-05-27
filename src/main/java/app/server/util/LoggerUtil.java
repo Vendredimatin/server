@@ -1,5 +1,7 @@
 package app.server.util;
 
+import app.server.exception.MakeErrException;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -15,59 +17,45 @@ public class LoggerUtil {
     private Logger logger;
     private LoggerUtil(){
         logger = Logger.getLogger("TEST");
-        try {
-            setLogingProperties(logger);
-        } catch (IOException e) {
-            logger.log(Level.WARNING, String.valueOf(e));
-        }
+        setLogingProperties(logger);
     }
     /**
      * 得到要记录的日志的路径及文件名称
      * @return String 日志路径
      */
-    private String getLogName() {
+    private String getLogName() throws MakeErrException {
         AtomicReference<StringBuilder> logPath = new AtomicReference<>(new StringBuilder());
         /* 存放的文件夹 **/
         AtomicReference<String> fileName = new AtomicReference<>("ServerLog");
-        logPath.get().append("/"+ fileName);
+        logPath.get().append("/");
+        logPath.get().append(fileName);
         File file = new File(logPath.toString());
-        if (!file.exists()) file.mkdir();
-
+        boolean mkRes = false;
+        if (!file.exists()) mkRes = file.mkdir();
+        if(!mkRes)throw new MakeErrException("Make Dir Error");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        logPath.get().append("/"+sdf.format(new Date())+".log");
-
+        logPath.get().append("/");
+        logPath.get().append(sdf.format(new Date()));
+        logPath.get().append(".log");
         return logPath.toString();
     }
 
     /**
      * 配置Logger对象输出日志文件路径
-     * @param logger
-     * @throws SecurityException
-     * @throws IOException
+     * @param logger Logger
      */
-    private void setLogingProperties(Logger logger) throws IOException {
-        setLogingProperties(logger, Level.ALL);
-    }
-
-    /**
-     * 配置Logger对象输出日志文件路径
-     * @param logger
-     * @param level 在日志文件中输出level级别以上的信息
-     * @throws SecurityException
-     * @throws IOException
-     */
-    private void setLogingProperties(Logger logger,Level level) {
+    private void setLogingProperties(Logger logger) {
         FileHandler fh;
         try {
             fh = new FileHandler(getLogName(),true);
             logger.addHandler(fh);//日志输出文件
-            // logger.setLevel(level);
             fh.setFormatter(new SimpleFormatter());//输出格式
-            //logger.addHandler(new ConsoleHandler());//输出到控制台
         } catch (SecurityException e) {
             logger.log(Level.SEVERE, "安全性错误", e);
         } catch (IOException e) {
             logger.log(Level.SEVERE,"读取文件日志错误", e);
+        } catch (MakeErrException e) {
+            logger.log(Level.SEVERE,"创建文件夹失败", e);
         }
     }
     public void logInfo(String msg){
