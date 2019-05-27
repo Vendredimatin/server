@@ -12,7 +12,7 @@ public class VtoP {
     private VtoP(){}
     public Comment getComment(CommentVO vo){
         Comment comment = new Comment();
-        comment.setCommentInfo(vo.getComment());
+        comment.setCommentInfo(vo.getContent());
         comment.setCommenter(vo.getCommenter());
         comment.setCourseId(vo.getCourseId());
         comment.setAnswerTo(vo.getAnswerTo());

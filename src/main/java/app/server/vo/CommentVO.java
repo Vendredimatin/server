@@ -14,7 +14,7 @@ public class CommentVO {
     private String answerTo;
     private String courseId;
     private String commenter;
-    private String comment;
+    private String content;
     private int likes;//点赞数
     private String time;
     private boolean like = false;//当前用户是否已经点赞
@@ -52,12 +52,12 @@ public class CommentVO {
         this.commenter = commenter;
     }
 
-    public String getComment() {
-        return comment;
+    public String getContent() {
+        return content;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setContent(String comment) {
+        this.content = comment;
     }
 
     public int getLikes() {
