@@ -3,7 +3,7 @@
  * Mon May 27 07:42:04 CST 2019
  */
 
-package app.server.Controller;
+package app.server.controller;
 
 import app.server.controller.student.StudentController;
 import app.server.service.CommentService;

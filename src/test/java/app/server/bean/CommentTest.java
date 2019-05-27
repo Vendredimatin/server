@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Comment_Test {
+public class CommentTest {
     @Test(timeout = 4000)
     public void test00() {
         Comment comment0 = new Comment();

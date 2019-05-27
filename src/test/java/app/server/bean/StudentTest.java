@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Student_test {
+public class StudentTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 

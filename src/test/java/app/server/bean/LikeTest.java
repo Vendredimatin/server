@@ -11,7 +11,7 @@ import static org.junit.Assert.assertNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Like_test {
+public class LikeTest {
     @Test(timeout = 4000)
     public void test0() {
         Like like0 = new Like();

@@ -1,4 +1,4 @@
-package app.server.Controller;
+package app.server.controller;
 
 import app.server.controller.admin.AdminController;
 import app.server.vo.CourseVO;

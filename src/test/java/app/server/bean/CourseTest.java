@@ -17,7 +17,7 @@ import static org.junit.Assert.assertFalse;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Course_test {
+public class CourseTest {
     @Test(timeout = 4000)
     public void test00() {
         Course course0 = new Course();

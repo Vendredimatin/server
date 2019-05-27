@@ -71,7 +71,6 @@ public class StudentImpl implements StudentService {
 
     @Override
     public Student getStudentInfo(String userName){
-        assert (userName!=null && !userName.equals("")):"username 为空";
         return studentDAO.getByUsername(userName);
     }
 }

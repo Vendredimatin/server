@@ -1,4 +1,4 @@
-package app.server.Controller;
+package app.server.controller;
 
 import app.server.controller.pub.PubController;
 import org.junit.Rule;

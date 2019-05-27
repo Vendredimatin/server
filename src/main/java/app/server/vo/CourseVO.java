@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -13,7 +14,7 @@ public class CourseVO {
     private String id;
     private String name;
     private String teacherName;
-    private ArrayList<Double> scoreList = new ArrayList<>(5);
+    private List<Double> scoreList = new ArrayList<>(5);
     private boolean anonymous = false;
     private boolean collect = false;
     private double recommend = 0;
@@ -50,11 +51,11 @@ public class CourseVO {
         this.teacherName = teacherName;
     }
 
-    public ArrayList<Double> getScoreList() {
+    public List<Double> getScoreList() {
         return scoreList;
     }
 
-    public void setScoreList(ArrayList<Double> scoreList) {
+    public void setScoreList(List<Double> scoreList) {
         this.scoreList = scoreList;
     }
 
