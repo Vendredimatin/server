@@ -21,6 +21,7 @@ public class LoggerUtil {
     }
     /**
      * 得到要记录的日志的路径及文件名称
+     *
      * @return String 日志路径
      */
     private String getLogName() throws MakeErrException {
