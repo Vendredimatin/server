@@ -5,22 +5,20 @@
 
 package app.server.vo;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-
-import org.evosuite.runtime.EvoRunner;
-import org.evosuite.runtime.EvoRunnerParameters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class StudentVOTest{
 
   @Test(timeout = 4000)
-  public void test00()  throws Throwable  {
+  public void test00() {
       StudentVO studentVO0 = new StudentVO();
       studentVO0.setUsername("y");
       String string0 = studentVO0.getUsername();
@@ -28,7 +26,7 @@ public class StudentVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test01()  throws Throwable  {
+  public void test01() {
       StudentVO studentVO0 = new StudentVO();
       studentVO0.setUsername("");
       String string0 = studentVO0.getUsername();
@@ -36,7 +34,7 @@ public class StudentVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test02()  throws Throwable  {
+  public void test02() {
       StudentVO studentVO0 = new StudentVO();
       studentVO0.setStudentNumber("u");
       String string0 = studentVO0.getStudentNumber();
@@ -44,7 +42,7 @@ public class StudentVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test03()  throws Throwable  {
+  public void test03() {
       StudentVO studentVO0 = new StudentVO();
       studentVO0.setStudentNumber("");
       String string0 = studentVO0.getStudentNumber();
@@ -52,7 +50,7 @@ public class StudentVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test04()  throws Throwable  {
+  public void test04() {
       StudentVO studentVO0 = new StudentVO();
       studentVO0.setSchool("R");
       String string0 = studentVO0.getSchool();
@@ -60,7 +58,7 @@ public class StudentVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test05()  throws Throwable  {
+  public void test05() {
       StudentVO studentVO0 = new StudentVO();
       studentVO0.setPassword("u");
       String string0 = studentVO0.getPassword();
@@ -68,7 +66,7 @@ public class StudentVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test06()  throws Throwable  {
+  public void test06() {
       StudentVO studentVO0 = new StudentVO();
       studentVO0.setMajor("a");
       String string0 = studentVO0.getMajor();
@@ -76,7 +74,7 @@ public class StudentVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test07()  throws Throwable  {
+  public void test07() {
       StudentVO studentVO0 = new StudentVO();
       studentVO0.setCollege("K");
       String string0 = studentVO0.getCollege();
@@ -84,28 +82,28 @@ public class StudentVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test08()  throws Throwable  {
+  public void test08() {
       StudentVO studentVO0 = new StudentVO();
       String string0 = studentVO0.getStudentNumber();
       assertNull(string0);
   }
 
   @Test(timeout = 4000)
-  public void test09()  throws Throwable  {
+  public void test09() {
       StudentVO studentVO0 = new StudentVO();
       String string0 = studentVO0.getUsername();
       assertNull(string0);
   }
 
   @Test(timeout = 4000)
-  public void test10()  throws Throwable  {
+  public void test10() {
       StudentVO studentVO0 = new StudentVO();
       String string0 = studentVO0.getCollege();
       assertNull(string0);
   }
 
   @Test(timeout = 4000)
-  public void test11()  throws Throwable  {
+  public void test11() {
       StudentVO studentVO0 = new StudentVO();
       studentVO0.setCollege("");
       String string0 = studentVO0.getCollege();
@@ -113,14 +111,14 @@ public class StudentVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test12()  throws Throwable  {
+  public void test12() {
       StudentVO studentVO0 = new StudentVO();
       String string0 = studentVO0.getMajor();
       assertNull(string0);
   }
 
   @Test(timeout = 4000)
-  public void test13()  throws Throwable  {
+  public void test13() {
       StudentVO studentVO0 = new StudentVO();
       studentVO0.setPassword("");
       String string0 = studentVO0.getPassword();
@@ -128,14 +126,14 @@ public class StudentVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test14()  throws Throwable  {
+  public void test14() {
       StudentVO studentVO0 = new StudentVO();
       String string0 = studentVO0.getPassword();
       assertNull(string0);
   }
 
   @Test(timeout = 4000)
-  public void test15()  throws Throwable  {
+  public void test15() {
       StudentVO studentVO0 = new StudentVO();
       studentVO0.setSchool("");
       String string0 = studentVO0.getSchool();
@@ -143,14 +141,14 @@ public class StudentVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test16()  throws Throwable  {
+  public void test16() {
       StudentVO studentVO0 = new StudentVO();
       String string0 = studentVO0.getSchool();
       assertNull(string0);
   }
 
   @Test(timeout = 4000)
-  public void test17()  throws Throwable  {
+  public void test17() {
       StudentVO studentVO0 = new StudentVO();
       studentVO0.setMajor("");
       String string0 = studentVO0.getMajor();

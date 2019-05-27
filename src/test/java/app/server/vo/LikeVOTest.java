@@ -5,22 +5,20 @@
 
 package app.server.vo;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-
-import org.evosuite.runtime.EvoRunner;
-import org.evosuite.runtime.EvoRunnerParameters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class LikeVOTest{
 
   @Test(timeout = 4000)
-  public void test0()  throws Throwable  {
+  public void test0() {
       LikeVO likeVO0 = new LikeVO();
       likeVO0.setUsername("V");
       String string0 = likeVO0.getUsername();
@@ -28,7 +26,7 @@ public class LikeVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test1()  throws Throwable  {
+  public void test1() {
       LikeVO likeVO0 = new LikeVO();
       likeVO0.setCommentId(1);
       int int0 = likeVO0.getCommentId();
@@ -36,7 +34,7 @@ public class LikeVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test2()  throws Throwable  {
+  public void test2() {
       LikeVO likeVO0 = new LikeVO();
       likeVO0.setCommentId((-1));
       int int0 = likeVO0.getCommentId();
@@ -44,21 +42,21 @@ public class LikeVOTest{
   }
 
   @Test(timeout = 4000)
-  public void test3()  throws Throwable  {
+  public void test3() {
       LikeVO likeVO0 = new LikeVO();
       int int0 = likeVO0.getCommentId();
       assertEquals(0, int0);
   }
 
   @Test(timeout = 4000)
-  public void test4()  throws Throwable  {
+  public void test4() {
       LikeVO likeVO0 = new LikeVO();
       String string0 = likeVO0.getUsername();
       assertNull(string0);
   }
 
   @Test(timeout = 4000)
-  public void test5()  throws Throwable  {
+  public void test5() {
       LikeVO likeVO0 = new LikeVO();
       likeVO0.setUsername("");
       String string0 = likeVO0.getUsername();

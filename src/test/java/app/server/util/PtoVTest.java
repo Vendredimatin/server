@@ -5,17 +5,11 @@
 
 package app.server.util;
 
-import static org.evosuite.runtime.EvoAssertions.verifyException;
-import static org.junit.Assert.fail;
-
-import org.evosuite.runtime.EvoRunner;
-import org.evosuite.runtime.EvoRunnerParameters;
+import app.server.bean.Comment;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
-
-import app.server.bean.Comment;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -26,7 +20,7 @@ public class PtoVTest{
     public ExpectedException thrown = ExpectedException.none();
 
   @Test(timeout = 4000)
-  public void test0()  throws Throwable  {
+  public void test0() {
       thrown.expect(NullPointerException.class);
       Comment comment0 = new Comment();
       PtoV ptoV0 = PtoV.ptoV;

@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest
 public class RatingDetaildTest {
     @Test(timeout = 4000)
-    public void test00()  throws Throwable  {
+    public void test00() {
         RatingDetail ratingDetail0 = new RatingDetail(0.0, 0.0, 0.0, 0.0, 0.5);
         double double0 = ratingDetail0.getScore5();
         assertEquals(0.0, ratingDetail0.getScore1(), 0.01);
@@ -28,7 +28,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test01()  throws Throwable  {
+    public void test01() {
         RatingDetail ratingDetail0 = new RatingDetail(0.0, 0.0, 0.0, 0.0, (-0.5825523974609375));
         double double0 = ratingDetail0.getScore5();
         assertEquals(0.0, ratingDetail0.getScore4(), 0.01);
@@ -39,7 +39,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test02()  throws Throwable  {
+    public void test02() {
         RatingDetail ratingDetail0 = new RatingDetail();
         ratingDetail0.setScore4(0.7538519423378907);
         double double0 = ratingDetail0.getScore4();
@@ -47,7 +47,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test03()  throws Throwable  {
+    public void test03() {
         RatingDetail ratingDetail0 = new RatingDetail(0.0, 0.0, 0.0, (-0.8525096751757812), 0.0);
         double double0 = ratingDetail0.getScore4();
         assertEquals(0.0, ratingDetail0.getScore5(), 0.01);
@@ -188,7 +188,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test17()  throws Throwable  {
+    public void test17() {
         RatingDetail ratingDetail0 = new RatingDetail(0.0, 0.0, 0.0, 0.0, 0.0);
         double double0 = ratingDetail0.getScore3();
         assertEquals(0.0, ratingDetail0.getScore2(), 0.01);

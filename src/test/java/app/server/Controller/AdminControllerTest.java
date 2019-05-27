@@ -23,7 +23,7 @@ public class AdminControllerTest {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test(timeout = 4000)
-    public void test0()  throws Throwable  {
+    public void test0() {
         thrown.expect(NullPointerException.class);
         AdminController adminController0 = new AdminController();
         CourseVO courseVO0 = new CourseVO();
@@ -33,7 +33,7 @@ public class AdminControllerTest {
     }
 
     @Test(timeout = 4000)
-    public void test1()  throws Throwable  {
+    public void test1() {
         thrown.expect(NullPointerException.class);
         AdminController adminController0 = new AdminController();
         // Undeclared exception!
@@ -42,7 +42,7 @@ public class AdminControllerTest {
     }
 
     @Test(timeout = 4000)
-    public void test2()  throws Throwable  {
+    public void test2() {
         thrown.expect(NullPointerException.class);
         AdminController adminController0 = new AdminController();
         // Undeclared exception!

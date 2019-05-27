@@ -21,16 +21,16 @@ public class VtoPTest{
     public ExpectedException thrown = ExpectedException.none();
 
   @Test(timeout = 4000)
-  public void test0()  throws Throwable  {
+  public void test0() {
       thrown.expect(NullPointerException.class);
       VtoP vtoP0 = VtoP.vtoP;
       // Undeclared exception!
-      vtoP0.getComment((CommentVO) null);
+      vtoP0.getComment(null);
 
   }
 
   @Test(timeout = 4000)
-  public void test1()  throws Throwable  {
+  public void test1() {
       thrown.expect(IndexOutOfBoundsException.class);
       CommentVO commentVO0 = new CommentVO();
       VtoP vtoP0 = VtoP.vtoP;

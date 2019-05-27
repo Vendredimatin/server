@@ -5,40 +5,26 @@
 
 package app.server.Controller;
 
-import static org.evosuite.runtime.EvoAssertions.verifyException;
-import static org.evosuite.shaded.org.mockito.ArgumentMatchers.any;
-import static org.evosuite.shaded.org.mockito.ArgumentMatchers.anyInt;
-import static org.evosuite.shaded.org.mockito.ArgumentMatchers.anyString;
-import static org.evosuite.shaded.org.mockito.Mockito.doReturn;
-import static org.evosuite.shaded.org.mockito.Mockito.mock;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import app.server.controller.student.StudentController;
-import org.evosuite.runtime.EvoRunner;
-import org.evosuite.runtime.EvoRunnerParameters;
+import app.server.service.CommentService;
+import app.server.service.CourseService;
+import app.server.service.StudentService;
+import app.server.vo.*;
 import org.evosuite.runtime.ViolatedAssumptionAnswer;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
-
-import app.server.service.CommentService;
-import app.server.service.CourseService;
-import app.server.service.StudentService;
-import app.server.vo.CollectVO;
-import app.server.vo.CommentVO;
-import app.server.vo.CourseVO;
-import app.server.vo.LikeVO;
-import app.server.vo.StudentVO;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.evosuite.shaded.org.mockito.ArgumentMatchers.*;
+import static org.evosuite.shaded.org.mockito.Mockito.doReturn;
+import static org.evosuite.shaded.org.mockito.Mockito.mock;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -47,10 +33,10 @@ public class StudentControllerTest{
     public ExpectedException thrown = ExpectedException.none();
 
   @Test(timeout = 4000)
-  public void test00()  throws Throwable  {
+  public void test00() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
-      doReturn((String) null).when(studentService0).updateStudentPassword(anyString() , anyString() , anyString());
+      doReturn(null).when(studentService0).updateStudentPassword(anyString() , anyString() , anyString());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
       StudentVO studentVO0 = new StudentVO();
@@ -59,7 +45,7 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test01()  throws Throwable  {
+  public void test01() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       doReturn("r").when(commentService0).like(anyString() , anyInt());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
@@ -72,7 +58,7 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test02()  throws Throwable  {
+  public void test02() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       doReturn("").when(commentService0).like(anyString() , anyInt());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
@@ -85,10 +71,10 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test03()  throws Throwable  {
+  public void test03() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
-      ArrayList<CourseVO> arrayList0 = new ArrayList<CourseVO>();
+      ArrayList<CourseVO> arrayList0 = new ArrayList<>();
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
       doReturn(arrayList0).when(courseService0).getCollectList(anyString());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
@@ -97,10 +83,10 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test04()  throws Throwable  {
+  public void test04() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
-      ArrayList<CourseVO> arrayList0 = new ArrayList<CourseVO>();
+      ArrayList<CourseVO> arrayList0 = new ArrayList<>();
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
       doReturn(arrayList0).when(courseService0).getCollectList(anyString());
       CourseVO courseVO0 = new CourseVO();
@@ -111,11 +97,11 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test05()  throws Throwable  {
+  public void test05() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
-      doReturn((String) null).when(courseService0).createCourse(anyString() , anyString() , anyString());
+      doReturn(null).when(courseService0).createCourse(anyString() , anyString() , anyString());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
       CourseVO courseVO0 = new CourseVO();
       String string0 = studentController0.createCourse(courseVO0);
@@ -123,7 +109,7 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test06()  throws Throwable  {
+  public void test06() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       doReturn("S").when(commentService0).comment(any(CommentVO.class));
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
@@ -135,7 +121,7 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test07()  throws Throwable  {
+  public void test07() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       doReturn("").when(commentService0).comment(any(CommentVO.class));
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
@@ -147,7 +133,7 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test08()  throws Throwable  {
+  public void test08() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
@@ -161,7 +147,7 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test09()  throws Throwable  {
+  public void test09() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       doReturn("l").when(commentService0).cancelLike(anyString() , anyInt());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
@@ -174,7 +160,7 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test10()  throws Throwable  {
+  public void test10() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       doReturn("").when(commentService0).cancelLike(anyString() , anyInt());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
@@ -187,7 +173,7 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test11()  throws Throwable  {
+  public void test11() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
@@ -201,7 +187,7 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test12()  throws Throwable  {
+  public void test12() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
@@ -215,10 +201,10 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test13()  throws Throwable  {
+  public void test13() {
       thrown.expect(NullPointerException.class);
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
-      StudentController studentController0 = new StudentController(commentService0, (StudentService) null, (CourseService) null);
+      StudentController studentController0 = new StudentController(commentService0, null, null);
       StudentVO studentVO0 = new StudentVO();
       // Undeclared exception!
       studentController0.updateStudentInfo(studentVO0);
@@ -226,11 +212,11 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test14()  throws Throwable  {
+  public void test14() {
       thrown.expect(NullPointerException.class);
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
-      StudentController studentController0 = new StudentController(commentService0, (StudentService) null, courseService0);
+      StudentController studentController0 = new StudentController(commentService0, null, courseService0);
       StudentVO studentVO0 = new StudentVO();
       // Undeclared exception!
       studentController0.register(studentVO0);
@@ -238,46 +224,46 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test15()  throws Throwable  {
+  public void test15() {
       thrown.expect(NullPointerException.class);
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
       // Undeclared exception!
-      studentController0.login((StudentVO) null);
+      studentController0.login(null);
 
   }
 
   @Test(timeout = 4000)
-  public void test16()  throws Throwable  {
+  public void test16() {
       thrown.expect(NullPointerException.class);
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
       // Undeclared exception!
-      studentController0.like((LikeVO) null);
+      studentController0.like(null);
 
   }
 
   @Test(timeout = 4000)
-  public void test17()  throws Throwable  {
+  public void test17() {
       thrown.expect(NullPointerException.class);
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
-      StudentController studentController0 = new StudentController(commentService0, studentService0, (CourseService) null);
+      StudentController studentController0 = new StudentController(commentService0, studentService0, null);
       // Undeclared exception!
       studentController0.getCollectList("");
 
   }
 
   @Test(timeout = 4000)
-  public void test18()  throws Throwable  {
+  public void test18() {
       thrown.expect(NullPointerException.class);
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
-      StudentController studentController0 = new StudentController((CommentService) null, studentService0, courseService0);
+      StudentController studentController0 = new StudentController(null, studentService0, courseService0);
       CommentVO commentVO0 = new CommentVO();
       // Undeclared exception!
       studentController0.comment(commentVO0);
@@ -285,22 +271,22 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test19()  throws Throwable  {
+  public void test19() {
       thrown.expect(NullPointerException.class);
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
       // Undeclared exception!
-      studentController0.collect((CollectVO) null);
+      studentController0.collect(null);
 
   }
 
   @Test(timeout = 4000)
-  public void test20()  throws Throwable  {
+  public void test20() {
       thrown.expect(NullPointerException.class);
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
-      StudentController studentController0 = new StudentController((CommentService) null, studentService0, (CourseService) null);
+      StudentController studentController0 = new StudentController(null, studentService0, null);
       LikeVO likeVO0 = new LikeVO();
       // Undeclared exception!
       studentController0.cancelLike(likeVO0);
@@ -308,11 +294,11 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test21()  throws Throwable  {
+  public void test21() {
       thrown.expect(NullPointerException.class);
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
-      StudentController studentController0 = new StudentController(commentService0, studentService0, (CourseService) null);
+      StudentController studentController0 = new StudentController(commentService0, studentService0, null);
       CollectVO collectVO0 = new CollectVO();
       // Undeclared exception!
       studentController0.cancelCollect(collectVO0);
@@ -320,10 +306,10 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test22()  throws Throwable  {
+  public void test22() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
-      doReturn((String) null).when(studentService0).register(anyString() , anyString() , anyString() , anyString() , anyString() , anyString());
+      doReturn(null).when(studentService0).register(anyString() , anyString() , anyString() , anyString() , anyString() , anyString());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
       StudentVO studentVO0 = new StudentVO();
@@ -332,10 +318,10 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test23()  throws Throwable  {
+  public void test23() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
-      doReturn((String) null).when(studentService0).login(anyString() , anyString());
+      doReturn(null).when(studentService0).login(anyString() , anyString());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
       StudentVO studentVO0 = new StudentVO();
@@ -344,11 +330,11 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test24()  throws Throwable  {
+  public void test24() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
-      doReturn((String) null).when(courseService0).collect(anyString() , anyString());
+      doReturn(null).when(courseService0).collect(anyString() , anyString());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
       CollectVO collectVO0 = new CollectVO();
       String string0 = studentController0.collect(collectVO0);
@@ -356,18 +342,18 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test25()  throws Throwable  {
+  public void test25() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
-      doReturn((List) null).when(courseService0).getCollectList(anyString());
+      doReturn(null).when(courseService0).getCollectList(anyString());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
       List<CourseVO> list0 = studentController0.getCollectList("");
       assertNull(list0);
   }
 
   @Test(timeout = 4000)
-  public void test26()  throws Throwable  {
+  public void test26() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       doReturn("").when(commentService0).cancelLike(anyString() , anyInt());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
@@ -379,11 +365,11 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test27()  throws Throwable  {
+  public void test27() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
-      doReturn((String) null).when(courseService0).cancelCollect(anyString() , anyString());
+      doReturn(null).when(courseService0).cancelCollect(anyString() , anyString());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
       CollectVO collectVO0 = new CollectVO();
       String string0 = studentController0.cancelCollect(collectVO0);
@@ -391,9 +377,9 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test28()  throws Throwable  {
+  public void test28() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
-      doReturn((String) null).when(commentService0).comment(any(CommentVO.class));
+      doReturn(null).when(commentService0).comment(any(CommentVO.class));
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
@@ -403,10 +389,10 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test29()  throws Throwable  {
+  public void test29() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
-      doReturn((String) null).when(studentService0).updateStudentInfo(anyString() , anyString() , anyString() , anyString() , anyString());
+      doReturn(null).when(studentService0).updateStudentInfo(anyString() , anyString() , anyString() , anyString() , anyString());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
       StudentVO studentVO0 = new StudentVO();
@@ -415,9 +401,9 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test30()  throws Throwable  {
+  public void test30() {
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
-      doReturn((String) null).when(commentService0).like(anyString() , anyInt());
+      doReturn(null).when(commentService0).like(anyString() , anyInt());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
@@ -427,26 +413,26 @@ public class StudentControllerTest{
   }
 
   @Test(timeout = 4000)
-  public void test31()  throws Throwable  {
+  public void test31() {
       thrown.expect(NullPointerException.class);
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
       // Undeclared exception!
-      studentController0.createCourse((CourseVO) null);
+      studentController0.createCourse(null);
 
   }
 
   @Test(timeout = 4000)
-  public void test32()  throws Throwable  {
+  public void test32() {
       thrown.expect(NullPointerException.class);
       CommentService commentService0 = mock(CommentService.class, new ViolatedAssumptionAnswer());
       StudentService studentService0 = mock(StudentService.class, new ViolatedAssumptionAnswer());
       CourseService courseService0 = mock(CourseService.class, new ViolatedAssumptionAnswer());
       StudentController studentController0 = new StudentController(commentService0, studentService0, courseService0);
       // Undeclared exception!
-      studentController0.updateStudentPassword((StudentVO) null);
+      studentController0.updateStudentPassword(null);
 
   }
 }
