@@ -7,7 +7,7 @@ import app.server.dao.CollectDAO;
 import app.server.dao.CourseDAO;
 import app.server.service.CFService;
 import app.server.service.CourseService;
-import app.server.util.CollaboratIveFiltering;
+//import app.server.util.CollaboratIveFiltering;
 import app.server.util.LoggerUtil;
 import app.server.util.PtoV;
 import app.server.vo.CourseVO;
@@ -31,12 +31,12 @@ public class CourseImpl implements CourseService {
     public CourseImpl() {
     }
 
-    @Autowired
+    /*@Autowired
     public CourseImpl(CourseDAO courseDAO, CollectDAO collectDAO,CFService cfService) {
         this.courseDAO = courseDAO;
         this.collectDAO = collectDAO;
    //     this.cfService = cfService;
-    }
+    }*/
 
     @Override
     public List<CourseVO> getCourses(String username) {

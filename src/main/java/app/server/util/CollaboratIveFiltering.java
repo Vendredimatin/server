@@ -1,3 +1,4 @@
+/*
 package app.server.util;
 
 import app.server.bean.Comment;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
-@Component
+//@Component
 public class CollaboratIveFiltering implements CFService {
     private static final double WEIGHT1 = 0.3;//权重
     private static final double WEIGHT2 = 0.15;//权重
@@ -35,7 +36,7 @@ public class CollaboratIveFiltering implements CFService {
         this.courseDAO = courseDAO;
         this.studentDAO = studentDAO;
         this.commentDAO = commentDAO;
-        init();
+       // init();
     }
 
     public void init(){
@@ -155,3 +156,4 @@ public class CollaboratIveFiltering implements CFService {
         return sum/similaritySum;
     }
 }
+*/
