@@ -54,6 +54,7 @@ private CFService cfService;
             String cid = course.getId();
             if (cids.contains(cid)) courseVO.setCollect(true);
             else if(map.containsKey(cid)){
+                LoggerUtil.loggerUtil.logInfo("cid"+cid+" recommend "+map.get(cid));
                 courseVO.setRecommend(map.get(cid));
             }
             res.add(courseVO);
