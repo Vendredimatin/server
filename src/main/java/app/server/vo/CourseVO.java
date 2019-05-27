@@ -13,9 +13,18 @@ public class CourseVO {
     private String id;
     private String name;
     private String teacherName;
-    private ArrayList<Double> scoreList = new ArrayList<>(5);
-    boolean anonymous = false;
-    boolean collect = false;
+    private ArrayList<Integer> scoreList = new ArrayList<>(5);
+    private boolean anonymous = false;
+    private boolean collect = false;
+    private double recommend = 0;
+
+    public double getRecommend() {
+        return recommend;
+    }
+
+    public void setRecommend(double recommend) {
+        this.recommend = recommend;
+    }
 
     public String getId() {
         return id;
@@ -41,11 +50,11 @@ public class CourseVO {
         this.teacherName = teacherName;
     }
 
-    public ArrayList<Double> getScoreList() {
+    public ArrayList<Integer> getScoreList() {
         return scoreList;
     }
 
-    public void setScoreList(ArrayList<Double> scoreList) {
+    public void setScoreList(ArrayList<Integer> scoreList) {
         this.scoreList = scoreList;
     }
 

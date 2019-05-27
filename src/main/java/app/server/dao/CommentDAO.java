@@ -10,4 +10,5 @@ import java.util.List;
 public interface CommentDAO extends JpaRepository<Comment,Integer> {
     List<Comment> findAllByCourseId(String courseId);
     Boolean existsByCourseId(String couresId);
+    List<Comment> findAllByCourseIdAndCommenter(String courseId,String username);
 }
