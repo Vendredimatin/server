@@ -14,8 +14,9 @@ public class CourseVO {
     private String name;
     private String teacherName;
     private ArrayList<Integer> scoreList = new ArrayList<>(5);
-    boolean anonymous = false;
-    boolean collect = false;
+    private boolean anonymous = false;
+    private boolean collect = false;
+    private double recommend = 0.0;
 
     public String getId() {
         return id;
