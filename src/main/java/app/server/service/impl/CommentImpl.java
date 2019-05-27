@@ -81,10 +81,10 @@ public class CommentImpl implements CommentService {
             RatingDetail ratingDetail = new RatingDetail(score1,score2,score3,score4,score5);
             course.setRatingDetail(ratingDetail);
             System.out.println(ratingDetail);
-            courseDAO.save(course);
+            courseDAO.saveAndFlush(course);
         }
         try {
-            commentDAO.save(comment);
+            commentDAO.saveAndFlush(comment);
 
             LoggerUtil.loggerUtil.logInfo("Comment Success");
         }catch (Exception e){

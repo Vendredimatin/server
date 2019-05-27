@@ -21,7 +21,7 @@ public class Comment {
     private String courseId;
     private String commenter;
     private String commentInfo;
-    private int likes;//点赞数
+    private int likes = 0;//点赞数
     private Date time;
     @Convert(converter = RatingDetainsConverter.class)
     private RatingDetail ratingDetail;
