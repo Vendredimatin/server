@@ -64,7 +64,7 @@ public class CollaboratIveFiltering implements CFService {
      */
     private void setScores(){
         for(int i = 0;i<courseIds.size();i++){
-            for(int j = 0;j<courseIds.size();j++){
+            for(int j = 0;j<stuIds.size();j++){
                 List<Comment> comments = commentDAO.findAllByCourseIdAndCommenter(courseIds.get(i),stuIds.get(j));
                 double score = scoreCal(comments);
                 scores[i][j] = score;
@@ -95,19 +95,18 @@ public class CollaboratIveFiltering implements CFService {
         double aver;
         double sum;
         int count;
-        for(int i = 0;i<courseIds.size();i++){
+        for(int j = 0;j<stuIds.size();j++){
             aver = 0;
             sum = 0;
             count = 0;
-            for(int j = 0;j<courseIds.size();j++){
+            for(int i = 0;i<courseIds.size();i++){
                 if(scores[i][j]!=0){
                     sum+=scores[i][j];
                     count++;
                 }
             }
-            if(count!=0)
-                aver = sum/count;
-            for(int j = 0;j<courseIds.size();j++){
+            if(count!=0)aver = sum/count;
+            for(int i = 0;i<courseIds.size();i++){
                 if(scores[i][j]!=0){
                     scores[i][j] -= aver;
                 }
