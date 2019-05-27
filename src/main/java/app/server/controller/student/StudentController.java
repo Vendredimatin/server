@@ -1,5 +1,6 @@
 package app.server.controller.student;
 
+import app.server.bean.Student;
 import app.server.service.CommentService;
 import app.server.service.CourseService;
 import app.server.service.StudentService;
@@ -41,6 +42,12 @@ public class StudentController {
 
         return studentService.register(student.getUsername(),student.getPassword(),student.getSchool(),student.getCollege(),student.getMajor(),student.getStudentNumber());
     }
+
+    @PostMapping(value = "getStudentInfo")
+    public Student getStudentInfo(String userName){
+        return studentService.getStudentInfo(userName);
+    }
+
     @PostMapping(value = "/updateStudentInfo")//String username,String password,String admin,String college,String majorString studentNumber
     public String updateStudentInfo(@RequestBody StudentVO student){
         LoggerUtil.loggerUtil.logInfo("updateStudentInfo");

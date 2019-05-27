@@ -96,6 +96,7 @@ public class CourseImpl implements CourseService {
         return null;
     }
 
+    @Transactional
     @Override
     public String createCourse(String id, String name, String teacherName) {
         if(id==null||courseDAO.existsById(id))return FAIL;
@@ -108,6 +109,7 @@ public class CourseImpl implements CourseService {
         return SUC;
     }
 
+    @Transactional
     @Override
     public String confirmCourse(String id) {
         if(id!=null&&courseDAO.existsById(id)){

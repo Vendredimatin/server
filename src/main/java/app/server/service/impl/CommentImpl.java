@@ -13,6 +13,7 @@ import app.server.util.VtoP;
 import app.server.vo.CommentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +60,7 @@ public class CommentImpl implements CommentService {
         return new ArrayList<>();
     }
 
+    @Transactional
     @Override
     public String comment(CommentVO commentVO) {
         Comment comment = VtoP.vtoP.getComment(commentVO);
@@ -85,6 +87,7 @@ public class CommentImpl implements CommentService {
         }
     }
 
+    @Transactional
     @Override
     public String cancelLike(String username, int commentId) {
         if(username!=null&&likeDAO.existsByCommentIdAndUsername(commentId,username)){

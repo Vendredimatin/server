@@ -5,6 +5,7 @@ import app.server.dao.StudentDAO;
 import app.server.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import static app.server.constants.Constants.FAIL;
 import static app.server.constants.Constants.SUC;
@@ -30,6 +31,7 @@ public class StudentImpl implements StudentService {
         return FAIL;
     }
 
+    @Transactional
     @Override
     public String register(String username, String password, String school, String college,String major,String studentNumber) {
         if(studentDAO.existsById(username))return "EXIST";
@@ -38,6 +40,7 @@ public class StudentImpl implements StudentService {
         return SUC;
     }
 
+    @Transactional
     @Override
     public String updateStudentInfo(String username,String school, String college, String major, String studentNumber) {
         if(studentDAO.existsById(username)) {
@@ -52,6 +55,7 @@ public class StudentImpl implements StudentService {
         return FAIL;
     }
 
+    @Transactional
     @Override
     public String updateStudentPassword(String username, String password, String newPass) {
         if(studentDAO.existsById(username)){
@@ -63,5 +67,11 @@ public class StudentImpl implements StudentService {
             }
         }
         return FAIL;
+    }
+
+    @Override
+    public Student getStudentInfo(String userName){
+        assert (userName!=null || !userName.equals("")):"username 为空";
+        return studentDAO.getByUsername(userName);
     }
 }
