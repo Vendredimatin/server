@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class StudentImpl_test {
+public class StudentImplTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 

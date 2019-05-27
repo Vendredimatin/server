@@ -40,8 +40,8 @@ private CFService cfService;
     @Override
     public List<CourseVO> getCourses(String username) {
         List<Course> courses = courseDAO.findAll();
-        courses = courses.stream().filter(c -> c.isAlive()).collect(Collectors.toList());
-        System.out.println(courses);
+        courses = courses.stream().filter(Course::isAlive).collect(Collectors.toList());
+
         List<CourseVO> res = new ArrayList<>();
         List<Collect> collects = collectDAO.findAllByUsername(username);
         List<String> cids = new ArrayList<>();

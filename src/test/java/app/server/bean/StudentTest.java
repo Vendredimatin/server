@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Student_test {
+public class StudentTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
@@ -105,7 +105,7 @@ public class Student_test {
     }
 
     @Test(timeout = 4000)
-    public void test11()  throws Throwable  {
+    public void test11() {
         Student student0 = new Student("", "", "", (String) null, (String) null, "");
         student0.setSchool("");
         String string0 = student0.getSchool();

@@ -1,23 +1,18 @@
 package app.server.bean;
 
-import app.server.dao.CourseDAO;
 import app.server.service.CourseService;
-import app.server.vo.CourseVO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
-
 import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Course_test {
+public class CourseTest {
     @Test(timeout = 4000)
     public void test00() {
         Course course0 = new Course();
@@ -148,8 +143,5 @@ public class Course_test {
         courseService.createCourse("4","1","1");
     }
 
-    @Test
-    public void test15(){
-        List<CourseVO> courseVOList = courseService.getCourses("");
-    }
+
 }

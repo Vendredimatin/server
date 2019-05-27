@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Comment_Test {
+public class CommentTest {
     @Test(timeout = 4000)
     public void test00() {
         Comment comment0 = new Comment();
@@ -152,7 +152,7 @@ public class Comment_Test {
     }
 
     @Test(timeout = 4000)
-    public void test17()  throws Throwable  {
+    public void test17() {
         Comment comment0 = new Comment();
         int int0 = comment0.getId();
         assertEquals((-1), comment0.getAnswerTo());

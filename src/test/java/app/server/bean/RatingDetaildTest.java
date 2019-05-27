@@ -58,7 +58,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test04()  throws Throwable  {
+    public void test04() {
         RatingDetail ratingDetail0 = new RatingDetail(0.0, 0.0, 0.869999263527793, 0.0, 0.0);
         double double0 = ratingDetail0.getScore3();
         assertEquals(0.0, ratingDetail0.getScore5(), 0.01);
@@ -69,7 +69,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test05()  throws Throwable  {
+    public void test05() {
         RatingDetail ratingDetail0 = new RatingDetail(0.0, 0.0, (-0.6024483544921875), 0.0, 0.0);
         double double0 = ratingDetail0.getScore3();
         assertEquals(0.0, ratingDetail0.getScore1(), 0.01);
@@ -80,7 +80,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test06()  throws Throwable  {
+    public void test06() {
         RatingDetail ratingDetail0 = new RatingDetail();
         ratingDetail0.setScore2(0.55078125);
         double double0 = ratingDetail0.getScore2();
@@ -88,7 +88,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test07()  throws Throwable  {
+    public void test07() {
         RatingDetail ratingDetail0 = new RatingDetail(0.0, (-0.6024483544921875), 0.0, 0.0, 0.0);
         double double0 = ratingDetail0.getScore2();
         assertEquals(0.0, ratingDetail0.getScore5(), 0.01);
@@ -99,7 +99,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test08()  throws Throwable  {
+    public void test08() {
         RatingDetail ratingDetail0 = new RatingDetail(0.0, 0.0, 0.0, 0.0, 0.0);
         ratingDetail0.setScore1(0.6025426051953126);
         double double0 = ratingDetail0.getScore1();
@@ -107,7 +107,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test09()  throws Throwable  {
+    public void test09() {
         RatingDetail ratingDetail0 = new RatingDetail(0.0, 0.0, 0.0, 0.0, 0.0);
         ratingDetail0.setScore1((-0.8732046719612871));
         double double0 = ratingDetail0.getScore1();
@@ -115,7 +115,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test10()  throws Throwable  {
+    public void test10() {
         RatingDetail ratingDetail0 = new RatingDetail();
         double double0 = ratingDetail0.getScore5();
         assertEquals(0.0, double0, 0.01);
@@ -126,7 +126,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test11()  throws Throwable  {
+    public void test11() {
         RatingDetail ratingDetail0 = new RatingDetail();
         double double0 = ratingDetail0.getScore4();
         assertEquals(0.0, ratingDetail0.getScore1(), 0.01);
@@ -137,7 +137,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test12()  throws Throwable  {
+    public void test12() {
         RatingDetail ratingDetail0 = new RatingDetail();
         double double0 = ratingDetail0.getScore1();
         assertEquals(0.0, ratingDetail0.getScore5(), 0.01);
@@ -148,7 +148,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test13()  throws Throwable  {
+    public void test13() {
         RatingDetail ratingDetail0 = new RatingDetail();
         double double0 = ratingDetail0.getScore2();
         assertEquals(0.0, double0, 0.01);
@@ -159,7 +159,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test14()  throws Throwable  {
+    public void test14() {
         RatingDetail ratingDetail0 = new RatingDetail();
         ratingDetail0.setScore5(0.0);
         assertEquals(0.0, ratingDetail0.getScore5(), 0.01);
@@ -170,7 +170,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test15()  throws Throwable  {
+    public void test15() {
         RatingDetail ratingDetail0 = new RatingDetail();
         ratingDetail0.setScore3(0.0);
         assertEquals(0.0, ratingDetail0.getScore1(), 0.01);
@@ -181,7 +181,7 @@ public class RatingDetaildTest {
     }
 
     @Test(timeout = 4000)
-    public void test16()  throws Throwable  {
+    public void test16() {
         RatingDetail ratingDetail0 = new RatingDetail();
         String string0 = ratingDetail0.toString();
         assertEquals("RatingDetail{score1=0.0, score2=0.0, score3=0.0, score4=0.0, score5=0.0}", string0);

@@ -64,7 +64,6 @@ public class CommentImpl implements CommentService {
     @Transactional
     @Override
     public String comment(CommentVO commentVO) {
-        System.out.println(commentVO);
         Comment comment = VtoP.vtoP.getComment(commentVO);
         if (comment.getAnswerTo() == -1){
             Course course = courseDAO.getOne(commentVO.getCourseId());
@@ -80,7 +79,6 @@ public class CommentImpl implements CommentService {
             double score5 = ratingDetails.stream().mapToDouble(RatingDetail::getScore5).sum()/commentsNumber;
             RatingDetail ratingDetail = new RatingDetail(score1,score2,score3,score4,score5);
             course.setRatingDetail(ratingDetail);
-            System.out.println(ratingDetail);
             courseDAO.saveAndFlush(course);
         }
         try {
