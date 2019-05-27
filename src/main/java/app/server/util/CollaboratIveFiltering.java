@@ -13,6 +13,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+/**
+ * 基于items的协同过滤算法
+ */
 @Component
 public class CollaboratIveFiltering implements CFService {
     private static final double WEIGHT1 = 0.3;//权重
@@ -23,9 +26,9 @@ public class CollaboratIveFiltering implements CFService {
 
     private ArrayList<String> courseIds = new ArrayList<>();//课程IDs
     private ArrayList<String> stuIds = new ArrayList<>();//学生IDs
-    private ArrayList<ArrayList<Double>> scoreVectors = new ArrayList<>();
-    private double[][] scores;
-    private double[][] similarity;
+    private ArrayList<ArrayList<Double>> scoreVectors = new ArrayList<>();//课程得分向量
+    private double[][] scores;//scores[i][j] i为课程index，j为学生index，courseId.get(i)为该课程的ID，stuIds.get(j)为该学生的ID
+    private double[][] similarity;//各个课程之间的相似度矩阵
     private CourseDAO courseDAO;
     private StudentDAO studentDAO;
     private CommentDAO commentDAO;
@@ -38,6 +41,9 @@ public class CollaboratIveFiltering implements CFService {
         init();
     }
 
+    /**
+     * 初始化成员变量
+     */
     public void init(){
         List<Course> courseList = courseDAO.findAll();
         List<Student> studentList = studentDAO.findAll();
@@ -48,15 +54,14 @@ public class CollaboratIveFiltering implements CFService {
         for(Student student:studentList){
             stuIds.add(student.getUsername());
         }
-        System.out.println("Course Num "+courseIds.size());
-        System.out.println("Stu Num "+stuIds.size());
         scores = new double[courseIds.size()][stuIds.size()];
-        System.out.println(scores[0][0]);
         setScores();
         similarity = new double[courseIds.size()][courseIds.size()];
-        System.out.println(similarity[0][0]);
         setSimilarity();
     }
+    /**
+     * 设置得分
+     */
     private void setScores(){
         for(int i = 0;i<courseIds.size();i++){
             for(int j = 0;j<courseIds.size();j++){
@@ -65,10 +70,14 @@ public class CollaboratIveFiltering implements CFService {
                 scores[i][j] = score;
             }
         }
-        //减用户评价平均数减少因用户评分习惯导致的误差
         decreaseAver();
         fillVectors();
     }
+    /**
+     * 根据权重计算最终的score
+     * @param comment 评论列表
+     * @return
+     */
     private double scoreCal(List<Comment> comment){
         if(comment==null&&comment.size()==0)return 0;
         double res = 0.0;
@@ -79,6 +88,9 @@ public class CollaboratIveFiltering implements CFService {
         }
         return res/count;
     }
+    /**
+     * 减用户评价平均数减少因用户评分习惯导致的误差
+     */
     private void decreaseAver(){
         double aver;
         double sum;
@@ -102,6 +114,9 @@ public class CollaboratIveFiltering implements CFService {
             }
         }
     }
+    /**
+     * 将二维数组转化为CosinCalUtil可以处理的ArrayList
+     */
     private void fillVectors(){
         for(int i = 0;i<courseIds.size();i++){
             ArrayList<Double> list = new ArrayList<>(scores[i].length);
@@ -109,7 +124,9 @@ public class CollaboratIveFiltering implements CFService {
             scoreVectors.add(list);
         }
     }
-    //计算相似度
+    /**
+     * 计算相似度
+     */
     private void setSimilarity(){
         int size = courseIds.size();
         for(int i = 0;i<size;i++){
@@ -123,8 +140,11 @@ public class CollaboratIveFiltering implements CFService {
             }
         }
     }
-
-    //key:CourseId    val:recommend
+    /**
+     * 返回用户未评论过的课程id和预测评分
+     * @param username
+     * @return key:CourseId    val:recommend
+     */
     public Map<String,Double> getRecommendCourses(String username){
         Map<String,Double> map = new HashMap<>();
         List<Integer> inds = new ArrayList<>();
@@ -142,6 +162,12 @@ public class CollaboratIveFiltering implements CFService {
         }
         return map;
     }
+    /**
+     * 预测
+     * @param n courseIndex
+     * @param stu studentIndex
+     * @return
+     */
     private double calPredict(int n,int stu){
         double similaritySum = 0.0;
         double sum = 0;

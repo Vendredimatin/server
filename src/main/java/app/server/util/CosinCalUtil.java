@@ -2,16 +2,20 @@ package app.server.util;
 
 import java.util.ArrayList;
 
-//Test版本
+
 public class CosinCalUtil {
 
-    private ArrayList<Double> validVector1 = new ArrayList<>();
-    private ArrayList<Double> validVector2 = new ArrayList<>();
-    private double vectorMul = 0.0;
-    private double validVectorLen1 = 0;
-    private double validVectorLen2 = 0;
+    private ArrayList<Double> validVector1 = new ArrayList<>();//有效向量1 去除未评论部分
+    private ArrayList<Double> validVector2 = new ArrayList<>();//有效向量2 去除未评论部分
+    private double vectorMul = 0.0;//向量内积
+    private double validVectorLen1;//有效向量1长度
+    private double validVectorLen2;//有效向量2长度
 
-    //获取两个向量中同时有评分的部分
+    /**
+     * 获取两个向量中同时有评分的部分
+     * @param a 向量
+     * @param b 向量
+     */
     private void setValidVectors(ArrayList<Double> a,ArrayList<Double> b){
         if(a==null||b==null||a.size()!=b.size())return;
         for(int i = 0;i<a.size();i++){
@@ -24,7 +28,11 @@ public class CosinCalUtil {
         }
     }
 
-    //求向量内积
+    /**
+     * 求向量内积
+     * @param a 向量
+     * @param b 向量
+     */
     private void vectorMul(ArrayList<Double> a,ArrayList<Double> b){
         if(a==null||b==null||a.size()==0||b.size()==0||a.size()!=b.size())vectorMul = -1;
         double res = 0;
@@ -34,7 +42,11 @@ public class CosinCalUtil {
         vectorMul = res;
     }
 
-    //求向量长度
+    /**
+     * 求向量长度
+     * @param a 向量
+     * @return 向量长度
+     */
     private double vectorLen(ArrayList<Double> a){
         if(a==null||a.size()==0)return -1;
         double sum = 0;
@@ -43,11 +55,19 @@ public class CosinCalUtil {
         }
         return Math.sqrt(sum);
     }
-
+    /**
+     * 计算余弦值
+     * @return 余弦值
+     */
     public double cosin(){
         return vectorMul/(validVectorLen1*validVectorLen2);
     }
 
+    /**
+     * 构造函数，初始化成员变量
+     * @param a 向量
+     * @param b 向量
+     */
     public CosinCalUtil(ArrayList<Double> a,ArrayList<Double> b){
         setValidVectors(a,b);
         vectorMul(this.validVector1,this.validVector2);
