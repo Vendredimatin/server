@@ -72,11 +72,12 @@ public class CommentImpl implements CommentService {
             comments = comments.stream().filter(c -> c.getAnswerTo() == -1).collect(Collectors.toList());
             comments.add(comment);
             List<RatingDetail> ratingDetails = comments.stream().map(Comment::getRatingDetail).collect(Collectors.toList());
-            double score1 = ratingDetails.stream().mapToDouble(RatingDetail::getScore1).sum();
-            double score2 = ratingDetails.stream().mapToDouble(RatingDetail::getScore2).sum();
-            double score3 = ratingDetails.stream().mapToDouble(RatingDetail::getScore3).sum();
-            double score4 = ratingDetails.stream().mapToDouble(RatingDetail::getScore4).sum();
-            double score5 = ratingDetails.stream().mapToDouble(RatingDetail::getScore5).sum();
+            double commentsNumber = comments.size();
+            double score1 = ratingDetails.stream().mapToDouble(RatingDetail::getScore1).sum()/commentsNumber;
+            double score2 = ratingDetails.stream().mapToDouble(RatingDetail::getScore2).sum()/commentsNumber;
+            double score3 = ratingDetails.stream().mapToDouble(RatingDetail::getScore3).sum()/commentsNumber;
+            double score4 = ratingDetails.stream().mapToDouble(RatingDetail::getScore4).sum()/commentsNumber;
+            double score5 = ratingDetails.stream().mapToDouble(RatingDetail::getScore5).sum()/commentsNumber;
             RatingDetail ratingDetail = new RatingDetail(score1,score2,score3,score4,score5);
             course.setRatingDetail(ratingDetail);
             System.out.println(ratingDetail);
@@ -98,7 +99,10 @@ public class CommentImpl implements CommentService {
         Like like = new Like();
         like.setCommentId(commentId);
         like.setUsername(username);
+        Comment comment = commentDAO.getOne(commentId);
+        comment.setLikes(comment.getLikes()+1);
         try {
+            commentDAO.save(comment);
             likeDAO.save(like);
             return SUC;
         }catch (Exception e){
