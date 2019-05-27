@@ -114,8 +114,11 @@ public class CommentImpl implements CommentService {
     @Transactional
     @Override
     public String cancelLike(String username, int commentId) {
-        if(username!=null&&likeDAO.existsByCommentIdAndUsername(commentId,username)){
+        if(username!=null&&likeDAO.existsByCommentIdAndUsername(commentId,username)&&commentDAO.existsById(commentId)){
             likeDAO.deleteByCommentIdAndUsername(commentId,username);
+            Comment comment = commentDAO.findById(commentId).get();
+            comment.setLikes(comment.getLikes()-1);
+            commentDAO.save(comment);
             return SUC;
         }
         return FAIL;
