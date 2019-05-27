@@ -1,12 +1,18 @@
 package app.server.impl;
 
+import app.server.bean.Course;
+import app.server.constants.Constants;
+import app.server.service.CourseService;
 import app.server.vo.CourseVO;
+import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.yaml.snakeyaml.scanner.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -164,5 +170,32 @@ public class Course_implTest {
         courseVO0.getName();
         assertFalse(courseVO0.isAnonymous());
         assertFalse(courseVO0.isCollect());
+    }
+
+    @Autowired
+    CourseService courseService;
+
+    @Test(timeout = 4000)
+    public void test16(){
+        String s = courseService.setCourseAnonymous("1",true);
+        Assert.assertEquals(Constants.SUC,s);
+    }
+
+    @Test(timeout = 4000)
+    public void test17(){
+        String s = courseService.collect("1","1");
+        Assert.assertEquals(Constants.SUC,s);
+    }
+
+    @Test(timeout = 4000)
+    public void test18(){
+        String s = courseService.cancelCollect("1","2");
+        Assert.assertEquals(Constants.SUC,s);
+    }
+
+    @Test(timeout = 4000)
+    public void getCoursesTest(){
+        CourseVO res = courseService.getCourseById("1","lhy");
+        Assert.assertEquals("1",res.getId());
     }
 }
