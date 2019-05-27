@@ -5,7 +5,9 @@ import app.server.bean.Course;
 import app.server.bean.RatingDetail;
 import app.server.dao.CollectDAO;
 import app.server.dao.CourseDAO;
+import app.server.service.CFService;
 import app.server.service.CourseService;
+import app.server.util.CollaboratIveFiltering;
 import app.server.util.LoggerUtil;
 import app.server.util.PtoV;
 import app.server.vo.CourseVO;
@@ -15,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static app.server.constants.Constants.FAIL;
@@ -24,14 +27,15 @@ import static app.server.constants.Constants.SUC;
 public class CourseImpl implements CourseService {
     private CourseDAO courseDAO;
     private CollectDAO collectDAO;
-
+    private CFService cfService;
     public CourseImpl() {
     }
 
     @Autowired
-    public CourseImpl(CourseDAO courseDAO, CollectDAO collectDAO) {
+    public CourseImpl(CourseDAO courseDAO, CollectDAO collectDAO,CFService cfService) {
         this.courseDAO = courseDAO;
         this.collectDAO = collectDAO;
+        this.cfService = cfService;
     }
 
     @Override
@@ -42,12 +46,17 @@ public class CourseImpl implements CourseService {
         List<CourseVO> res = new ArrayList<>();
         List<Collect> collects = collectDAO.findAllByUsername(username);
         List<String> cids = new ArrayList<>();
+        Map<String,Double> map = cfService.getRecommendCourses(username);
         for (Collect c : collects) {
             cids.add(c.getCourseId());
         }
         for (Course course : courses) {
             CourseVO courseVO = PtoV.ptoV.getCourseVO(course);
-            if (cids.contains(course.getId())) courseVO.setCollect(true);
+            String cid = course.getId();
+            if (cids.contains(cid)) courseVO.setCollect(true);
+            else if(map.containsKey(cid)){
+                courseVO.setRecommend(map.get(cid));
+            }
             res.add(courseVO);
         }
 
