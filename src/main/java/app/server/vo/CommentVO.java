@@ -18,7 +18,7 @@ public class CommentVO {
     private int likes;//点赞数
     private String time;
     private boolean like = false;//当前用户是否已经点赞
-    private ArrayList<Integer> scoreList = new ArrayList<>(5);
+    private ArrayList<Double> scoreList = new ArrayList<>(5);
 
     public int getId() {
         return id;
@@ -84,11 +84,11 @@ public class CommentVO {
         this.like = like;
     }
 
-    public ArrayList<Integer> getScoreList() {
+    public ArrayList<Double> getScoreList() {
         return scoreList;
     }
 
-    public void setScoreList(ArrayList<Integer> scoreList) {
+    public void setScoreList(ArrayList<Double> scoreList) {
         this.scoreList = scoreList;
     }
 }

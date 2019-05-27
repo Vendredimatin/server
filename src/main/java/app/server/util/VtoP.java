@@ -17,7 +17,7 @@ public class VtoP {
         comment.setCourseId(vo.getCourseId());
         comment.setAnswerTo(vo.getAnswerTo());
         comment.setLikes(vo.getLikes());
-        List<Integer> scores = vo.getScoreList();
+        List<Double> scores = vo.getScoreList();
         RatingDetail ratingDetail = new RatingDetail(scores.get(0),scores.get(1),scores.get(2),scores.get(3),scores.get(4));
         comment.setRatingDetail(ratingDetail);
         comment.setTime(new Date());

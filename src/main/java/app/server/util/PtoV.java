@@ -22,7 +22,7 @@ public class PtoV {
         commentVO.setCourseId(po.getCourseId());
         commentVO.setAnswerTo(po.getAnswerTo());
         commentVO.setTime(dateFormatMin.format(po.getTime()));
-        ArrayList<Integer> scores = new ArrayList<>(5);
+        ArrayList<Double> scores = new ArrayList<>(5);
         RatingDetail ratingDetail = po.getRatingDetail();
         scores.add(ratingDetail.getScore1());
         scores.add(ratingDetail.getScore2());
@@ -39,7 +39,7 @@ public class PtoV {
         courseVO.setId(po.getId());
         courseVO.setName(po.getName());
         courseVO.setTeacherName(po.getTeacherName());
-        ArrayList<Integer> scores = new ArrayList<>(5);
+        ArrayList<Double> scores = new ArrayList<>(5);
         RatingDetail ratingDetail = po.getRatingDetail();
         scores.add(ratingDetail.getScore1());
         scores.add(ratingDetail.getScore2());

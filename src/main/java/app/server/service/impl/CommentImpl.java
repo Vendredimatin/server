@@ -70,11 +70,11 @@ public class CommentImpl implements CommentService {
             List<Comment> comments = commentDAO.findAllByCourseId(course.getId());
             comments = comments.stream().filter(c -> c.getAnswerTo() == -1).collect(Collectors.toList());
             List<RatingDetail> ratingDetails = comments.stream().map(Comment::getRatingDetail).collect(Collectors.toList());
-            int score1 = ratingDetails.stream().mapToInt(RatingDetail::getScore1).sum();
-            int score2 = ratingDetails.stream().mapToInt(RatingDetail::getScore2).sum();
-            int score3 = ratingDetails.stream().mapToInt(RatingDetail::getScore3).sum();
-            int score4 = ratingDetails.stream().mapToInt(RatingDetail::getScore4).sum();
-            int score5 = ratingDetails.stream().mapToInt(RatingDetail::getScore5).sum();
+            double score1 = ratingDetails.stream().mapToDouble(RatingDetail::getScore1).sum();
+            double score2 = ratingDetails.stream().mapToDouble(RatingDetail::getScore2).sum();
+            double score3 = ratingDetails.stream().mapToDouble(RatingDetail::getScore3).sum();
+            double score4 = ratingDetails.stream().mapToDouble(RatingDetail::getScore4).sum();
+            double score5 = ratingDetails.stream().mapToDouble(RatingDetail::getScore5).sum();
             RatingDetail ratingDetail = new RatingDetail(score1,score2,score3,score4,score5);
             comment.setRatingDetail(ratingDetail);
             System.out.println(ratingDetail);
