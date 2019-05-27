@@ -43,9 +43,10 @@ public class StudentController {
         return studentService.register(student.getUsername(),student.getPassword(),student.getSchool(),student.getCollege(),student.getMajor(),student.getStudentNumber());
     }
 
-    @PostMapping(value = "getStudentInfo")
-    public Student getStudentInfo(String userName){
-        return studentService.getStudentInfo(userName);
+    @GetMapping(value = "/getStudentInfo")
+    public Student getStudentInfo(String username){
+        Student student = studentService.getStudentInfo(username);
+        return student;
     }
 
     @PostMapping(value = "/updateStudentInfo")//String username,String password,String admin,String college,String majorString studentNumber

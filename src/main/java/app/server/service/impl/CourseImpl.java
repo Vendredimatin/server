@@ -2,8 +2,7 @@ package app.server.service.impl;
 
 import app.server.bean.Collect;
 import app.server.bean.Course;
-import app.server.bean.RatingDetails;
-import app.server.constants.Constants;
+import app.server.bean.RatingDetail;
 import app.server.dao.CollectDAO;
 import app.server.dao.CourseDAO;
 import app.server.service.CourseService;
@@ -16,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static app.server.constants.Constants.FAIL;
 import static app.server.constants.Constants.SUC;
@@ -24,9 +24,12 @@ import static app.server.constants.Constants.SUC;
 public class CourseImpl implements CourseService {
     private CourseDAO courseDAO;
     private CollectDAO collectDAO;
-    public CourseImpl(){}
+
+    public CourseImpl() {
+    }
+
     @Autowired
-    public CourseImpl(CourseDAO courseDAO,CollectDAO collectDAO){
+    public CourseImpl(CourseDAO courseDAO, CollectDAO collectDAO) {
         this.courseDAO = courseDAO;
         this.collectDAO = collectDAO;
     }
@@ -34,24 +37,28 @@ public class CourseImpl implements CourseService {
     @Override
     public List<CourseVO> getCourses(String username) {
         List<Course> courses = courseDAO.findAll();
+        courses = courses.stream().filter(c -> c.isAlive()).collect(Collectors.toList());
+        System.out.println(courses);
         List<CourseVO> res = new ArrayList<>();
         List<Collect> collects = collectDAO.findAllByUsername(username);
         List<String> cids = new ArrayList<>();
-        for(Collect c:collects){
+        for (Collect c : collects) {
             cids.add(c.getCourseId());
         }
-        for(Course course:courses){
+        for (Course course : courses) {
             CourseVO courseVO = PtoV.ptoV.getCourseVO(course);
-            if(cids.contains(course.getId()))courseVO.setCollect(true);
+            if (cids.contains(course.getId())) courseVO.setCollect(true);
             res.add(courseVO);
         }
+
+
         return res;
     }
 
     @Override
     public String setCourseAnonymous(String id, boolean anonymous) {
 
-        if(id!=null&&courseDAO.existsById(id)) {
+        if (id != null && courseDAO.existsById(id)) {
             Course course = courseDAO.findById(id).get();
             if (course.isAnonymous() != anonymous) {
                 course.setAnonymous(anonymous);
@@ -67,10 +74,10 @@ public class CourseImpl implements CourseService {
         Collect collect = new Collect();
         collect.setCourseId(courseId);
         collect.setUsername(username);
-        try{
+        try {
             collectDAO.save(collect);
             return SUC;
-        }catch (Exception e){
+        } catch (Exception e) {
             LoggerUtil.loggerUtil.logErr(e.getMessage());
             return FAIL;
         }
@@ -79,18 +86,18 @@ public class CourseImpl implements CourseService {
     @Transactional
     @Override
     public String cancelCollect(String username, String courseId) {
-        if(username!=null&&collectDAO.existsByCourseIdAndUsername(courseId,username)){
-            collectDAO.deleteByCourseIdAndUsername(courseId,username);
+        if (username != null && collectDAO.existsByCourseIdAndUsername(courseId, username)) {
+            collectDAO.deleteByCourseIdAndUsername(courseId, username);
             return SUC;
         }
         return FAIL;
     }
 
     @Override
-    public CourseVO getCourseById(String id,String username) {
-        if(id!=null&&courseDAO.existsById(id)){
+    public CourseVO getCourseById(String id, String username) {
+        if (id != null && courseDAO.existsById(id)) {
             CourseVO courseVO = PtoV.ptoV.getCourseVO(courseDAO.findById(id).get());
-            if(collectDAO.existsByCourseIdAndUsername(id,username))courseVO.setCollect(true);
+            if (collectDAO.existsByCourseIdAndUsername(id, username)) courseVO.setCollect(true);
             return courseVO;
         }
         return null;
@@ -99,12 +106,12 @@ public class CourseImpl implements CourseService {
     @Transactional
     @Override
     public String createCourse(String id, String name, String teacherName) {
-        if(id==null||courseDAO.existsById(id))return FAIL;
+        if (id == null || courseDAO.existsById(id)) return FAIL;
         Course course = new Course();
         course.setId(id);
         course.setName(name);
         course.setTeacherName(teacherName);
-        course.setRatingDetails(new RatingDetails());
+        course.setRatingDetail(new RatingDetail());
         courseDAO.save(course);
         return SUC;
     }
@@ -112,7 +119,7 @@ public class CourseImpl implements CourseService {
     @Transactional
     @Override
     public String confirmCourse(String id) {
-        if(id!=null&&courseDAO.existsById(id)){
+        if (id != null && courseDAO.existsById(id)) {
             Course course = courseDAO.findById(id).get();
             course.setAlive(true);
             courseDAO.save(course);
@@ -125,7 +132,7 @@ public class CourseImpl implements CourseService {
     public List<CourseVO> getUnconfirmList() {
         List<Course> courses = courseDAO.findAllByAlive(false);
         List<CourseVO> res = new ArrayList<>();
-        for(Course course:courses){
+        for (Course course : courses) {
             res.add(PtoV.ptoV.getCourseVO(course));
         }
         return res;
@@ -135,8 +142,8 @@ public class CourseImpl implements CourseService {
     public List<CourseVO> getCollectList(String username) {
         List<CourseVO> courseVOS = getCourses(username);
         List<CourseVO> res = new ArrayList<>();
-        for(CourseVO courseVO:courseVOS){
-            if(courseVO.isCollect()){
+        for (CourseVO courseVO : courseVOS) {
+            if (courseVO.isCollect()) {
                 res.add(courseVO);
             }
         }

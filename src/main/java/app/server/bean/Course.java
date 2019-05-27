@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Convert;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -21,8 +18,10 @@ public class Course {
     private String name;
     private String teacherName;
     @Convert(converter = RatingDetainsConverter.class)
-    private RatingDetails ratingDetails;
+    private RatingDetail ratingDetail;
+    @Column(columnDefinition="bool default false")
     private boolean alive = false;//是否激活
+    @Column(columnDefinition = "bit(1) default 0")
     private boolean anonymous = false;//是否匿名
 
     public String getId() {
@@ -53,12 +52,12 @@ public class Course {
         return alive;
     }
 
-    public RatingDetails getRatingDetails() {
-        return ratingDetails;
+    public RatingDetail getRatingDetail() {
+        return ratingDetail;
     }
 
-    public void setRatingDetails(RatingDetails ratingDetails) {
-        this.ratingDetails = ratingDetails;
+    public void setRatingDetail(RatingDetail ratingDetail) {
+        this.ratingDetail = ratingDetail;
     }
 
     public void setAlive(boolean alive) {

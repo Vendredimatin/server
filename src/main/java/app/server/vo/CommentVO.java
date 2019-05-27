@@ -11,14 +11,14 @@ import java.util.ArrayList;
 @NoArgsConstructor
 public class CommentVO {
     private int id;
-    private String answerTo;
+    private int answerTo;
     private String courseId;
     private String commenter;
     private String content;
     private int likes;//点赞数
     private String time;
     private boolean like = false;//当前用户是否已经点赞
-    private ArrayList<Integer> scoreList = new ArrayList<>(5);
+    private ArrayList<Double> scoreList = new ArrayList<>(5);
 
     public int getId() {
         return id;
@@ -28,11 +28,11 @@ public class CommentVO {
         this.id = id;
     }
 
-    public String getAnswerTo() {
+    public int getAnswerTo() {
         return answerTo;
     }
 
-    public void setAnswerTo(String answerTo) {
+    public void setAnswerTo(int answerTo) {
         this.answerTo = answerTo;
     }
 
@@ -84,11 +84,11 @@ public class CommentVO {
         this.like = like;
     }
 
-    public ArrayList<Integer> getScoreList() {
+    public ArrayList<Double> getScoreList() {
         return scoreList;
     }
 
-    public void setScoreList(ArrayList<Integer> scoreList) {
+    public void setScoreList(ArrayList<Double> scoreList) {
         this.scoreList = scoreList;
     }
 }
