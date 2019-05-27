@@ -3,6 +3,7 @@ package app.server.service.impl;
 import app.server.bean.Comment;
 import app.server.bean.Course;
 import app.server.bean.Like;
+import app.server.bean.RatingDetail;
 import app.server.dao.CommentDAO;
 import app.server.dao.CourseDAO;
 import app.server.dao.LikeDAO;
@@ -17,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static app.server.constants.Constants.FAIL;
 import static app.server.constants.Constants.SUC;
@@ -63,6 +65,20 @@ public class CommentImpl implements CommentService {
     @Override
     public String comment(CommentVO commentVO) {
         Comment comment = VtoP.vtoP.getComment(commentVO);
+        if (comment.getAnswerTo() == -1){
+            Course course = courseDAO.getOne(commentVO.getCourseId());
+            List<Comment> comments = commentDAO.findAllByCourseId(course.getId());
+            comments = comments.stream().filter(c -> c.getAnswerTo() == -1).collect(Collectors.toList());
+            List<RatingDetail> ratingDetails = comments.stream().map(Comment::getRatingDetail).collect(Collectors.toList());
+            int score1 = ratingDetails.stream().mapToInt(RatingDetail::getScore1).sum();
+            int score2 = ratingDetails.stream().mapToInt(RatingDetail::getScore2).sum();
+            int score3 = ratingDetails.stream().mapToInt(RatingDetail::getScore3).sum();
+            int score4 = ratingDetails.stream().mapToInt(RatingDetail::getScore4).sum();
+            int score5 = ratingDetails.stream().mapToInt(RatingDetail::getScore5).sum();
+            RatingDetail ratingDetail = new RatingDetail(score1,score2,score3,score4,score5);
+            comment.setRatingDetail(ratingDetail);
+            System.out.println(ratingDetail);
+        }
         try {
             commentDAO.save(comment);
             LoggerUtil.loggerUtil.logInfo("Comment Success");

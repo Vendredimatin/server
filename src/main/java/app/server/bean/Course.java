@@ -21,7 +21,7 @@ public class Course {
     private String name;
     private String teacherName;
     @Convert(converter = RatingDetainsConverter.class)
-    private RatingDetails ratingDetails;
+    private RatingDetail ratingDetail;
     private boolean alive = false;//是否激活
     private boolean anonymous = false;//是否匿名
 
@@ -53,12 +53,12 @@ public class Course {
         return alive;
     }
 
-    public RatingDetails getRatingDetails() {
-        return ratingDetails;
+    public RatingDetail getRatingDetail() {
+        return ratingDetail;
     }
 
-    public void setRatingDetails(RatingDetails ratingDetails) {
-        this.ratingDetails = ratingDetails;
+    public void setRatingDetail(RatingDetail ratingDetail) {
+        this.ratingDetail = ratingDetail;
     }
 
     public void setAlive(boolean alive) {

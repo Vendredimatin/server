@@ -6,17 +6,17 @@ package app.server.bean;
  * @Date Created in ${Time} ${Date}
  * @Modified By:
  */
-public class RatingDetails {
+public class RatingDetail {
     private int score1 = 0;
     private int score2 = 0;
     private int score3 = 0;
     private int score4 = 0;
     private int score5 = 0;
 
-    public RatingDetails() {
+    public RatingDetail() {
     }
 
-    public RatingDetails(int score1, int score2, int score3, int score4, int score5) {
+    public RatingDetail(int score1, int score2, int score3, int score4, int score5) {
         this.score1 = score1;
         this.score2 = score2;
         this.score3 = score3;
@@ -62,5 +62,10 @@ public class RatingDetails {
 
     public void setScore5(int score5) {
         this.score5 = score5;
+    }
+
+    @Override
+    public String toString() {
+        return "RatingDetail{" + "score1=" + score1 + ", score2=" + score2 + ", score3=" + score3 + ", score4=" + score4 + ", score5=" + score5 + '}';
     }
 }

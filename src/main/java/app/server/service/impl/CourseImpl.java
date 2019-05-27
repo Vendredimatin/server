@@ -2,8 +2,7 @@ package app.server.service.impl;
 
 import app.server.bean.Collect;
 import app.server.bean.Course;
-import app.server.bean.RatingDetails;
-import app.server.constants.Constants;
+import app.server.bean.RatingDetail;
 import app.server.dao.CollectDAO;
 import app.server.dao.CourseDAO;
 import app.server.service.CourseService;
@@ -104,7 +103,7 @@ public class CourseImpl implements CourseService {
         course.setId(id);
         course.setName(name);
         course.setTeacherName(teacherName);
-        course.setRatingDetails(new RatingDetails());
+        course.setRatingDetail(new RatingDetail());
         courseDAO.save(course);
         return SUC;
     }

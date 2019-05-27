@@ -24,14 +24,14 @@ public class Comment {
     private int likes;//点赞数
     private Date time;
     @Convert(converter = RatingDetainsConverter.class)
-    private RatingDetails ratingDetails;
+    private RatingDetail ratingDetail;
 
-    public RatingDetails getRatingDetails() {
-        return ratingDetails;
+    public RatingDetail getRatingDetail() {
+        return ratingDetail;
     }
 
-    public void setRatingDetails(RatingDetails ratingDetails) {
-        this.ratingDetails = ratingDetails;
+    public void setRatingDetail(RatingDetail ratingDetail) {
+        this.ratingDetail = ratingDetail;
     }
 
     public int getId() {
