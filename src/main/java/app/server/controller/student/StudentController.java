@@ -72,6 +72,9 @@ public class StudentController {
     }
     @RequestMapping(value = "/comment")
     public String comment(@RequestBody CommentVO commentVO){
+        LoggerUtil.loggerUtil.logInfo("Comment");
+        LoggerUtil.loggerUtil.logInfo("AnswerTo "+commentVO.getAnswerTo());
+        LoggerUtil.loggerUtil.logInfo("Commenter "+commentVO.getCommenter());
         return commentService.comment(commentVO);
     }
     @RequestMapping(value = "/like")
