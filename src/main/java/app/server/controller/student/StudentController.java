@@ -45,7 +45,9 @@ public class StudentController {
 
     @GetMapping(value = "getStudentInfo")
     public Student getStudentInfo(String userName){
-        return studentService.getStudentInfo(userName);
+        Student student = studentService.getStudentInfo(userName);
+        System.out.println(student);
+        return student;
     }
 
     @PostMapping(value = "/updateStudentInfo")//String username,String password,String admin,String college,String majorString studentNumber
