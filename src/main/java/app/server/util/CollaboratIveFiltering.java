@@ -44,7 +44,7 @@ public class CollaboratIveFiltering implements CFService {
     /**
      * 初始化成员变量
      */
-    public void init(){
+    private void init(){
         List<Course> courseList = courseDAO.findAll();
         List<Student> studentList = studentDAO.findAll();
 
@@ -76,10 +76,10 @@ public class CollaboratIveFiltering implements CFService {
     /**
      * 根据权重计算最终的score
      * @param comment 评论列表
-     * @return
+     * @return 最终的score
      */
     private double scoreCal(List<Comment> comment){
-        if(comment==null&&comment.size()==0)return 0;
+        if(comment==null||comment.isEmpty())return 0;
         double res = 0.0;
         int count = comment.size();
         for(Comment c:comment){
@@ -88,6 +88,7 @@ public class CollaboratIveFiltering implements CFService {
         }
         return res/count;
     }
+
     /**
      * 减用户评价平均数减少因用户评分习惯导致的误差
      */
@@ -141,7 +142,7 @@ public class CollaboratIveFiltering implements CFService {
     }
     /**
      * 返回用户未评论过的课程id和预测评分
-     * @param username
+     * @param username 用户名
      * @return key:CourseId    val:recommend
      */
     public Map<String,Double> getRecommendCourses(String username){
@@ -165,7 +166,7 @@ public class CollaboratIveFiltering implements CFService {
      * 预测
      * @param n courseIndex
      * @param stu studentIndex
-     * @return
+     * @return 预测结果
      */
     private double calPredict(int n,int stu){
         double similaritySum = 0.0;
