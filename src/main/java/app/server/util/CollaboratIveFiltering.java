@@ -1,3 +1,4 @@
+/*
 package app.server.util;
 
 import app.server.bean.Comment;
@@ -150,3 +151,4 @@ public class CollaboratIveFiltering implements CFService {
         return sum/similaritySum;
     }
 }
+*/
