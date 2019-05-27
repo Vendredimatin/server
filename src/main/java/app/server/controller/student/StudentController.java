@@ -45,6 +45,7 @@ public class StudentController {
 
     @GetMapping(value = "/getStudentInfo")
     public Student getStudentInfo(String userName){
+        System.out.println(userName);
         Student student = studentService.getStudentInfo(userName);
         System.out.println(student);
         return student;
