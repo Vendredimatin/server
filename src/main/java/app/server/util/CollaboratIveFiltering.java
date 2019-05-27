@@ -2,7 +2,7 @@ package app.server.util;
 
 import app.server.bean.Comment;
 import app.server.bean.Course;
-import app.server.bean.RatingDetails;
+import app.server.bean.RatingDetail;
 import app.server.bean.Student;
 import app.server.dao.CommentDAO;
 import app.server.dao.CourseDAO;
@@ -69,7 +69,7 @@ public class CollaboratIveFiltering {
         double res = 0.0;
         int count = comment.size();
         for(Comment c:comment){
-            RatingDetails ratingDetails = c.getRatingDetails();
+            RatingDetail ratingDetails = c.getRatingDetail();
             res += ratingDetails.getScore1()*WEIGHT1+ratingDetails.getScore2()*WEIGHT2+ratingDetails.getScore3()*WEIGHT3+ratingDetails.getScore4()*WEIGHT4+ratingDetails.getScore5()*WEIGHT5;
         }
         return res/count;
